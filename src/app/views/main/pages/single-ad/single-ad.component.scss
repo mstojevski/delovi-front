@@ -1,0 +1,85 @@
+.single-ad {
+  padding-top:60px;
+a
+  h2 {
+    margin-bottom:30px;
+    margin-top:30px;
+  }
+}
+.title {
+  display:flex;
+  align-items:center;
+  margin-bottom:20px;
+  i {
+    margin-left:16px;
+    font-size:32px;
+    color:#C59849
+  }
+}
+
+.info {
+
+  margin-top:60px;
+  b {
+    font-weight:bold;
+  }
+}
+
+h1 {
+  font-size:32px;
+}
+
+h2 {
+  font-size:24px;
+  margin-bottom:20px;
+}
+.ad-profile {
+  margin-top:100px;
+  max-width:400px;
+  border:4px dotted #eaeaea;
+  display:flex;
+  padding:8px 10px;
+  align-items:center;
+  border-radius:5px;
+  font-weight:bold;
+  span {
+    font-weight:normal;
+  }
+  img {
+    margin-right:10px;
+  }
+}
+
+// Similar ads
+.category-ads {
+  padding-left:30px;
+  padding-right:30px;
+  padding-bottom:60px;
+
+  h2 {
+    margin-bottom:30px;
+    margin-top:50px;
+  }
+}
+.category-container {
+  display:flex;
+}
+.category-ad {
+  margin-right:30px;
+  h3 {
+    margin-bottom:10px;
+    font-weight:bold;
+  }
+  p {
+    margin-top:10px;
+  }
+}
+.info.category {
+  margin-top:0;
+}
+.ad-status {
+  margin-top:30px;
+}
+.ad-status.active {
+  color:#2CA58D
+}

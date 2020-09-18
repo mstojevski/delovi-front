@@ -1,0 +1,46 @@
+<div class="profile">
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class="ad-profile">
+          <img src="https://media-exp1.licdn.com/dms/image/C4D03AQF5Xi081CHVdA/profile-displayphoto-shrink_400_400/0?e=1605744000&v=beta&t=Gj0t_Lfs2jfIvAgcgcQwn5PYzOhPl_uVK27lmE9xgeM" alt="" width="80" height="80">
+          <div class="desc">
+            <h3>Milan Stojevski</h3>
+            <p><span>Mesto:</span> Pancevo</p>
+            <p><span>Kontakt:</span> 061/178-54-65</p>
+            <div class="reviews">
+              <div class="minus">
+                <i class="fas fa-minus"></i>
+                6
+              </div>
+              <div class="plus">
+                <i class="fas fa-plus"></i>
+                9
+              </div>
+
+            </div>
+          </div>
+      </div>
+    </div>
+      <div class="col-9">
+        <div class="ads">
+          <h2>Aktivni Oglasi</h2>
+          <div class="ad" *ngFor="let number of [0,1,2,3,4,5,6,7,8,9,10,11,12]">
+            <div class="ad-title">
+              <a ><h2>Facilis iure, eligendi quod dolores</h2></a>
+              <span class="date">21/09/2020</span>
+            </div>
+            <div class="ad-desc">
+              <p class="ad-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe sed molestias beatae harum modi officia facilis iure, eligendi quod dolo... <a class="read-more" [routerLink]="['/ad/123']">Pogledaj Oglas</a></p>
+            </div>
+
+            <span class="ad-footer">
+              <h3 class="ad-author">Kategorija: Delovi Karoserije</h3>
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
