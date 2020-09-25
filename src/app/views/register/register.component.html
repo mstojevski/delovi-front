@@ -1,1 +1,109 @@
-register works
+<div class="login">
+  <div class="login-container">
+    <div class="logo-container">
+      <h2>Registracija</h2>
+    </div>
+    <form action="" class="form" [formGroup]="registerForm">
+      <div class="form-group">
+        <div class="label">Email</div>
+        <input
+          type="email"
+          class="input"
+          [class.alert-error]="email.invalid && (email.dirty || email.touched)"
+          [class.alert-success]="
+            !email.invalid && (email.dirty || email.touched)
+          "
+          formControlName="email"
+          placeholder="mail@example.com"
+        />
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+          <span class="show-error" *ngIf="email.hasError('required')">
+            Email je obavezan.
+          </span>
+          <span class="show-error" *ngIf="email.hasError('email')">
+            Email nije u dobrom formatu.
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">Password</div>
+        <input
+          type="password"
+          class="input"
+          [class.alert-error]="
+            password.invalid && (password.dirty || password.touched)
+          "
+          [class.alert-success]="
+            !password.invalid && (password.dirty || password.touched)
+          "
+          formControlName="password"
+          placeholder="Unesite password"
+        />
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+          <span class="show-error" *ngIf="password.hasError('required')">
+            Password je obavezan.
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">Ime</div>
+        <input
+          type="text"
+          class="input"
+          [class.alert-error]="name.invalid && (name.dirty || name.touched)"
+          [class.alert-success]="
+            !name.invalid && (name.dirty || name.touched)
+          "
+          formControlName="name"
+          placeholder="Marko Markovic"
+        />
+        <div *ngIf="name.invalid && (name.dirty || name.touched)">
+          <span class="show-error" *ngIf="name.hasError('required')">
+            Ime je obavezno.
+          </span>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <div class="label">Telefon</div>
+        <input
+          type="text"
+          class="input"
+          [class.alert-error]="phone.invalid && (phone.dirty || phone.touched)"
+          [class.alert-success]="
+            !phone.invalid && (phone.dirty || phone.touched)
+          "
+          formControlName="phone"
+          placeholder="+38164694302"
+        />
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+          <span class="show-error" *ngIf="phone.hasError('required')">
+            Telefon je obavezan.
+          </span>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <div class="label">Mesto</div>
+        <input
+          type="email"
+          class="input"
+          [class.alert-error]="place.invalid && (place.dirty || place.touched)"
+          [class.alert-success]="
+            !place.invalid && (place.dirty || place.touched)
+          "
+          formControlName="place"
+          placeholder="Beograd"
+        />
+        <div *ngIf="place.invalid && (place.dirty || place.touched)">
+          <span class="show-error" *ngIf="place.hasError('required')">
+            Mesto je obavezno.
+          </span>
+        </div>
+
+      </div>
+      <button class="btn primary" (click)="register()">Registruj se</button>
+    </form>
+  </div>
+</div>

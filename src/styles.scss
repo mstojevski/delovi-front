@@ -1,5 +1,6 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
-@import "simple-grid";
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,700&display=swap');
+
 /* You can add global styles to this file, and also import other style files */
 // css reset
 
@@ -8,57 +9,322 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: "Lato", sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
+  margin: 0;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 * {
   box-sizing: border-box;
 }
 a {
-  cursor:pointer;
-  text-decoration:none;
+  cursor: pointer;
+  text-decoration: none;
+  color:#0A2342
 }
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
+  color: #2c3e50;
+  margin: 0;
 }
 
+p {
+  line-height: 145%;
+}
+
+/*
+  # Inputs
+*/
+
+.label {
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
+  color: #718093;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+// Firefox css only
+@supports (-moz-appearance: none) {
+  .input {
+    &::placeholder {
+      line-height: 36px;
+    }
+  }
+}
+
+.input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  border: 1px solid #a4aeba;
+  border-radius: 5px;
+  padding-left: 13px;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  color: #0a3d62;
+
+  &.ng-touched.ng-invalid {
+    border: 1px solid #ff5f57;
+  }
+
+  &.ng-touched.ng-valid {
+    border: 1px solid #20ac8c;
+  }
+
+  &:read-only {
+    background: #e8ebee;
+    color: #a4aeba;
+    border: 1px solid #e8ebee;
+    border-radius: 5px;
+
+    &:focus,
+    &:active {
+      border: 1px solid #e8ebee;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid #695eee;
+    box-shadow: 0 0 4px #695eee;
+  }
+
+  &::placeholder {
+    color: #a4aeba;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  &.alert-error {
+    border: 1px solid #ff5f57;
+  }
+
+  &.alert-success {
+    border: 1px solid #20ac8c;
+  }
+  &.ng-touched.ng-invalid:read-only,
+  &.ng-touched.ng-valid:read-only {
+    border-color: #e8ebee;
+  }
+}
+
+.input-disabled {
+  background: #e8ebee;
+  width: 331px;
+  height: 42px;
+}
+
+.input-disabled[placeholder] {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  /* identical to box height, or 100% */
+
+  display: flex;
+  align-items: center;
+
+  /* Textfield border and Light Text */
+
+  color: #a4aeba;
+}
+.textarea {
+  background: #ffffff;
+  border: 1px solid #a4aeba;
+  border-radius: 4px;
+  resize: none;
+  font-size: 14px;
+  line-height: 14px;
+  padding-left: 12px;
+  padding-top: 12px;
+  font-weight: 600;
+  color: #0a3d62;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #695eee;
+    box-shadow: 0 0 4px #695eee;
+  }
+
+  &::placeholder {
+    color: #718093;
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+.show-error {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 12px;
+  color: #ff5f57;
+}
+
+.form-group {
+  min-height: 84px;
+  margin-bottom: 12px;
+}
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 14px;
+  text-transform: capitalize;
+  transition: background 400ms;
+  cursor: pointer;
+  padding: 11px 16px;
+  border: 1px solid transparent;
+
+  &.primary {
+    background: #f18805;
+    color: #fff;
+
+    &:hover {
+      background: #f0a202;
+    }
+
+    &:focus {
+      background: #d95d39;
+      border: 1px solid #d95d39;
+      box-shadow: 0 0 4px #d95d39;
+      border-radius: 6px;
+    }
+
+    &.disabled {
+      background: #d2d6dc;
+      color: #a4aeba;
+      border-radius: 6px;
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,1 +1,51 @@
-<p>login works!</p>
+<div class="login">
+  <div class="login-container">
+    <div class="logo-container">
+      <h2>Uloguj se</h2>
+    </div>
+    <form action="" class="form" [formGroup]="signInForm">
+      <div class="form-group">
+        <div class="label">Email</div>
+        <input
+          type="email"
+          class="input"
+          [class.alert-error]="email.invalid && (email.dirty || email.touched)"
+          [class.alert-success]="
+            !email.invalid && (email.dirty || email.touched)
+          "
+          formControlName="email"
+          placeholder="mail@example.com"
+        />
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+          <span class="show-error" *ngIf="email.hasError('required')">
+            Email je obavezan.
+          </span>
+          <span class="show-error" *ngIf="email.hasError('email')">
+            Email nije u dobrom formatu.
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">Password</div>
+        <input
+          type="password"
+          class="input"
+          [class.alert-error]="
+            password.invalid && (password.dirty || password.touched)
+          "
+          [class.alert-success]="
+            !password.invalid && (password.dirty || password.touched)
+          "
+          formControlName="password"
+          placeholder="Unesite password"
+        />
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+          <span class="show-error" *ngIf="password.hasError('required')">
+            Password je obavezan.
+          </span>
+        </div>
+      </div>
+      <button class="btn primary" (click)="login()">Uloguj se</button>
+    </form>
+  </div>
+</div>

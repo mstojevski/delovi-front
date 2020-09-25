@@ -11,7 +11,8 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~10.0.14",
+    "@angular/animations": "^10.0.14",
+    "@angular/cdk": "^10.2.2",
     "@angular/common": "~10.0.14",
     "@angular/compiler": "~10.0.14",
     "@angular/core": "~10.0.14",
@@ -21,6 +22,9 @@
     "@angular/router": "~10.0.14",
     "@ng-select/ng-select": "^5.0.1",
     "ng-image-slider": "^2.6.4",
+    "ngx-toastr": "^13.0.0",
+    "primeflex": "^2.0.0",
+    "primeng": "^10.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

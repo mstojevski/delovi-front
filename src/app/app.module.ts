@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './views/register/register.component';
 import { LoginComponent } from './views/login/login.component';
 import { MainModule } from './views/main/main.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AdComponent } from './views/components/ad/ad.component';
 import { HomeComponent } from './views/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -17,9 +21,19 @@ import { HomeComponent } from './views/home/home.component';
     RegisterComponent,
     LoginComponent,
     AdComponent,
-    HomeComponent
+    HomeComponent,
   ],
-  imports: [BrowserModule, FormsModule, NgSelectModule, AppRoutingModule,  MainModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    NgSelectModule,
+    AppRoutingModule,
+    MainModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot()
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

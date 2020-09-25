@@ -2,14 +2,20 @@
   <header class="nav">
     <span class="logo"><i class="fas fa-cogs"></i><a routerLink="/" >Delovi.rs</a></span>
     <ul class="nav-list">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!auth.isAuthenticated">
         <a routerLink="/register">Register</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!auth.isAuthenticated">
         <a routerLink="/login">Login</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="auth.isAuthenticated">
+        <a routerLink="/home">Pocetna</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.isAuthenticated">
         <a routerLink="/ad-create">Napravi Oglas</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.isAuthenticated">
+        <a (click)="auth.logout()">Logout</a>
       </li>
     </ul>
 
