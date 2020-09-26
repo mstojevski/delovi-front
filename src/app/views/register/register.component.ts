@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../../auth.service'
+import { AuthService, IUser } from '../../auth.service'
 
 @Component({
   templateUrl: './register.component.html',
@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
     phone: new FormControl('', [Validators.required]),
-    place: new FormControl('', [Validators.required]),
+    city: new FormControl('', [Validators.required]),
   });
 
   get email() {
@@ -26,8 +26,8 @@ export class RegisterComponent implements OnInit {
   get name() {
     return this.registerForm.get('name');
   }
-  get place() {
-    return this.registerForm.get('place');
+  get city() {
+    return this.registerForm.get('city');
   }
   get phone() {
     return this.registerForm.get('phone');
@@ -38,7 +38,14 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.auth.register(this.email.value, this.password.value)
+    const user: IUser = {
+      email: this.email.value,
+      password: this.password.value,
+      name: this.name.value,
+      phone: this.phone.value,
+      city: this.city.value
+    }
+    this.auth.register(user)
   }
 
 }

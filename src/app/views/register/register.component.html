@@ -89,15 +89,15 @@
         <input
           type="email"
           class="input"
-          [class.alert-error]="place.invalid && (place.dirty || place.touched)"
+          [class.alert-error]="city.invalid && (city.dirty || city.touched)"
           [class.alert-success]="
-            !place.invalid && (place.dirty || place.touched)
+            !city.invalid && (city.dirty || city.touched)
           "
-          formControlName="place"
+          formControlName="city"
           placeholder="Beograd"
         />
-        <div *ngIf="place.invalid && (place.dirty || place.touched)">
-          <span class="show-error" *ngIf="place.hasError('required')">
+        <div *ngIf="city.invalid && (city.dirty || city.touched)">
+          <span class="show-error" *ngIf="city.hasError('required')">
             Mesto je obavezno.
           </span>
         </div>

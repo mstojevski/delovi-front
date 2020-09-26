@@ -24,6 +24,7 @@
     "ng-image-slider": "^2.6.4",
     "ngx-toastr": "^13.0.0",
     "primeflex": "^2.0.0",
+    "primeicons": "^4.0.0",
     "primeng": "^10.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

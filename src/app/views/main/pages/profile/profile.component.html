@@ -4,7 +4,7 @@
       <div class="p-col-3">
         <div class="ad-profile">
           <img src="https://media-exp1.licdn.com/dms/image/C4D03AQF5Xi081CHVdA/profile-displayphoto-shrink_400_400/0?e=1605744000&v=beta&t=Gj0t_Lfs2jfIvAgcgcQwn5PYzOhPl_uVK27lmE9xgeM" alt="" width="80" height="80">
-          <div class="desc">
+          <div class="desc" *ngIf='user$ | async'>
             <h3>Milan Stojevski</h3>
             <p><span>Mesto:</span> Pancevo</p>
             <p><span>Kontakt:</span> 061/178-54-65</p>

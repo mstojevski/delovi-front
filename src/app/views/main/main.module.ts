@@ -5,16 +5,21 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { MainRoutingModule } from './main-routing.module';
 import { SingleAdComponent } from './pages/single-ad/single-ad.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { AdCreateComponent } from './pages/ad-create/ad-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import {StepsModule} from 'primeng/steps';
+import { CreateAdModule } from './pages/create-ad/create-ad.module';
 
 @NgModule({
-  declarations: [SingleAdComponent, ProfileComponent, AdCreateComponent],
+  declarations: [SingleAdComponent, ProfileComponent],
   imports: [
     CommonModule,
     MainRoutingModule,
     NgImageSliderModule,
     ReactiveFormsModule,
+    SharedModule,
+    StepsModule,
+    CreateAdModule
   ],
 })
 export class MainModule {}

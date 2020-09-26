@@ -91,6 +91,7 @@ export class HomeComponent implements OnInit {
       const names = data.map((item) => item.name);
       this.brends = names;
     })
+    this.homeService.getAds().subscribe(data => console.log(data));
   }
 
   ngOnDestroy() {

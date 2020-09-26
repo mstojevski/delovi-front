@@ -8,11 +8,12 @@ import { LoginComponent } from './views/login/login.component';
 import { MainModule } from './views/main/main.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { AdComponent } from './views/components/ad/ad.component';
 import { HomeComponent } from './views/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './views/shared/shared.module';
+import { CreateAdModule } from './views/main/pages/create-ad/create-ad.module';
 
 
 @NgModule({
@@ -20,7 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    AdComponent,
     HomeComponent,
   ],
   imports: [
@@ -32,7 +32,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MainModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    SharedModule,
+    CreateAdModule
   ],
   providers: [],
   bootstrap: [AppComponent],

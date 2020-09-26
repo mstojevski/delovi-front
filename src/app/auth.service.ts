@@ -3,6 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
+export interface IUser {
+  email:string;
+  password:string;
+  name: string;
+  city: string;
+  phone:string;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -28,12 +35,11 @@ export class AuthService {
     localStorage.setItem(this.TOKEN_KEY, token);
   }
 
-  register(email: string, password: string) {
+  register(user: IUser) {
     return this.http
       .post(
         'http://localhost:3500/auth/register',
-        { email, password },
-        { responseType: 'text' }
+        { user },
       )
       .subscribe(() => {
         this.toastr.success('Uspesno ste se registrovali');

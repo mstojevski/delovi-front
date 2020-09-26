@@ -1,22 +1,33 @@
 <div class="flex-wrap">
   <header class="nav">
-    <span class="logo"><i class="fas fa-cogs"></i><a routerLink="/" >Delovi.rs</a></span>
+    <span class="logo"><i class="fas fa-cogs"></i><a routerLink="/">Delovi.rs</a></span>
     <ul class="nav-list">
-      <li class="nav-item" *ngIf="!auth.isAuthenticated">
-        <a routerLink="/register">Register</a>
-      </li>
-      <li class="nav-item" *ngIf="!auth.isAuthenticated">
-        <a routerLink="/login">Login</a>
-      </li>
-      <li class="nav-item" *ngIf="auth.isAuthenticated">
-        <a routerLink="/home">Pocetna</a>
-      </li>
-      <li class="nav-item" *ngIf="auth.isAuthenticated">
-        <a routerLink="/ad-create">Napravi Oglas</a>
-      </li>
-      <li class="nav-item" *ngIf="auth.isAuthenticated">
-        <a (click)="auth.logout()">Logout</a>
-      </li>
+      <ng-container *ngIf='!auth.isAuthenticated'>
+        <li class="nav-item">
+          <a routerLink="/register">Registruj se</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/login">Prijavi se</a>
+        </li>
+      </ng-container>
+
+
+      <ng-container *ngIf='auth.isAuthenticated'>
+        <li class="nav-item">
+          <a routerLink="/home">Početna</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/ad-create">Napravi Oglas</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/profile/123">Moj Profil</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="auth.logout()">Odjavi se</a>
+        </li>
+      </ng-container>
+
+
     </ul>
 
   </header>

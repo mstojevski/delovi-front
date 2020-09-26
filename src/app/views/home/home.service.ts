@@ -18,5 +18,8 @@ export class HomeService {
   getBrends(): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:3500/brend')
   }
+  getAds(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:3500/ad')
+  }
 
 }
