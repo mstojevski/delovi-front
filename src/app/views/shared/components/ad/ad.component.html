@@ -1,14 +1,14 @@
 <div class="ad" [class.special]="special">
   <div class="ad-title">
-    <h2>Facilis iure, eligendi quod dolores</h2>
-    <span class="date">18/02/2020</span>
+    <h2>{{title}}</h2>
+    <span class="date">{{date | date:'dd/MM/yyyy'}}</span>
   </div>
   <div class="ad-desc">
-    <p class="ad-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe sed molestias beatae harum modi officia facilis iure, eligendi quod dolo... <a class="read-more" [routerLink]="['/ad/123']">Pogledaj Oglas</a></p>
+    <p class="ad-short-desc">{{description}}<a class="read-more" [routerLink]="['/ad', id]">Pogledaj Oglas</a></p>
   </div>
 
   <span class="ad-footer">
-    <h3 class="ad-spec" >Oglas kreirao: <a routerLink="/profile/123">Milan Stojevski</a></h3>
+    <h3 class="ad-spec" >Oglas kreirao: <a [routerLink]="['/profile', user._id]">{{author}}</a></h3>
     <h3 class="ad-spec">Kategorija: Delovi Karoserije</h3>
   </span>
 </div>

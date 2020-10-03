@@ -10,6 +10,10 @@ import { StepsModule } from 'primeng/steps';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import {FileUploadModule} from 'primeng/fileupload';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+import {CheckboxModule} from 'primeng/checkbox';
+
 
 
 @NgModule({
@@ -25,7 +29,11 @@ import {FileUploadModule} from 'primeng/fileupload';
     StepsModule,
     CardModule,
     ButtonModule,
-    FileUploadModule
+    FileUploadModule,
+    CheckboxModule,
+    ReactiveFormsModule,
+    NgSelectModule,
+
   ],
 })
 export class CreateAdModule {}

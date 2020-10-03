@@ -1,100 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from './home.service';
-import { Subscription } from 'rxjs';
+import { HomeService, IData } from './home.service';
+import { Subscription, Observable } from 'rxjs';
 
+interface Ad {
+  title: string;
+  description: string;
+  author: string;
+  _id: string;
+  user: any;
+  favorite:boolean;
+  createdAt: any;
+}
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
+
 export class HomeComponent implements OnInit {
   categorySubscription: Subscription;
-  // manufactors = [
-  //   'Abarth',
-  //   'Alfa Romeo',
-  //   'Aston Martin',
-  //   'Audi',
-  //   'Bentley',
-  //   'BMW',
-  //   'Bugatti',
-  //   'Cadillac',
-  //   'Chevrolet',
-  //   'Chrysler',
-  //   'Citroën',
-  //   'Dacia',
-  //   'Daewoo',
-  //   'Daihatsu',
-  //   'Dodge',
-  //   'Donkervoort',
-  //   'DS',
-  //   'Ferrari',
-  //   'Fiat',
-  //   'Fisker',
-  //   'Ford',
-  //   'Honda',
-  //   'Hummer',
-  //   'Hyundai',
-  //   'Infiniti',
-  //   'Iveco',
-  //   'Jaguar',
-  //   'Jeep',
-  //   'Kia',
-  //   'KTM',
-  //   'Lada',
-  //   'Lamborghini',
-  //   'Lancia',
-  //   'Land Rover',
-  //   'Landwind',
-  //   'Lexus',
-  //   'Lotus',
-  //   'Maserati',
-  //   'Maybach',
-  //   'Mazda',
-  //   'McLaren',
-  //   'Mercedes-Benz',
-  //   'MG',
-  //   'Mini',
-  //   'Mitsubishi',
-  //   'Morgan',
-  //   'Nissan',
-  //   'Opel',
-  //   'Peugeot',
-  //   'Porsche',
-  //   'Renault',
-  //   'Rolls-Royce',
-  //   'Rover',
-  //   'Saab',
-  //   'Seat',
-  //   'Skoda',
-  //   'Smart',
-  //   'SsangYong',
-  //   'Subaru',
-  //   'Suzuki',
-  //   'Tesla',
-  //   'Toyota',
-  //   'Volkswagen',
-  //   'Volvo',
-  // ];
+  brands$: Observable<IData[]>
+  categories$: Observable<IData[]>;
+  ads:Ad[];
 
-  brends: string[];
-  categories: string[];
-
-  adCreated = Date.now();
 
   constructor(private homeService: HomeService) {}
 
   ngOnInit() {
-    this.categorySubscription = this.homeService.getCategories().subscribe((data) => {
-      const names = data.map((item) => item.name);
-      this.categories = names;
-    });
-    this.homeService.getBrends().subscribe((data) => {
-      const names = data.map((item) => item.name);
-      this.brends = names;
-    })
-    this.homeService.getAds().subscribe(data => console.log(data));
+    this.categories$ = this.homeService.getCategories();
+    this.brands$ = this.homeService.getBrends();
+
+    this.homeService.getAds().subscribe(data => this.ads = data);
   }
 
-  ngOnDestroy() {
-    this.categorySubscription.unsubscribe();
-  }
 }

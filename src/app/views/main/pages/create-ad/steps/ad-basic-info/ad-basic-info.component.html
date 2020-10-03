@@ -1,29 +1,61 @@
-<p-card>
-  <ng-template pTemplate="title"> Personal Information </ng-template>
-  <ng-template pTemplate="subtitle">
-    Enter your personal information
-  </ng-template>
-  <ng-template pTemplate="content">
-    <div class="p-fluid">
-      <div class="p-field">
-        <label for="firstname">Firstname</label>
+<div class="basic-info">
+  <p-card>
+    <ng-template pTemplate="title">Osnovne Informacije</ng-template>
+    <ng-template pTemplate="content">
+      <form action="" [formGroup]="adForm">
+        <div class="p-fluid">
+          <div class="p-field">
+            <label for="firstname">Naslov</label>
+            <input type="text" class="input" formControlName="title" placeholder="Naslov vašeg oglasa" />
+          </div>
+          <div class="p-field">
+            <label for="lastname">Opis</label>
+            <input type="text" class="input" formControlName="description" placeholder="Opis vašeg oglasa" />
+          </div>
+          <div class="p-field">
+            <label for="lastname">Kategorija</label>
+            <ng-select
+              [items]="categories$ | async"
+              bindLabel="name"
+              bindValue="_id"
+              formControlName="categories"
+              placeholder="Izaberite kategoriju"
+            >
+            </ng-select>
+          </div>
+          <div class="p-field">
+            <label for="lastname">Marka</label>
+            <ng-select
+              [items]="brands$ | async"
+              bindLabel="name"
+              bindValue="_id"
+              formControlName="brands"
+              placeholder="Izaberite marku"
+            >
+            </ng-select>
+          </div>
+
+          <div class="p-field">
+            <div class="favorite">
+              <label for="">Oglas Favorizovan</label>
+              <p-checkbox formControlName="favorite" binary="true" inputId="binary"></p-checkbox>
+            </div>
+
+          </div>
+
+          <button class="btn primary" (click)="createAd()">Dodaj</button>
+        </div>
+      </form>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="p-grid p-nogutter p-justify-end">
+        <p-button
+          label="Next"
+          (onClick)="nextPage()"
+          icon="pi pi-angle-right"
+          iconPos="right"
+        ></p-button>
       </div>
-      <div class="p-field">
-        <label for="lastname">Lastname</label>
-      </div>
-      <div class="p-field">
-        <label for="age">Age</label>
-      </div>
-    </div>
-  </ng-template>
-  <ng-template pTemplate="footer">
-    <div class="p-grid p-nogutter p-justify-end">
-      <p-button
-        label="Next"
-        (onClick)="nextPage()"
-        icon="pi pi-angle-right"
-        iconPos="right"
-      ></p-button>
-    </div>
-  </ng-template>
-</p-card>
+    </ng-template>
+  </p-card>
+</div>

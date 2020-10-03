@@ -11,6 +11,10 @@ export class AdComponent {
   @Input() description: string;
   @Input() status: string;
   @Input() price: number;
+  @Input() author: string;
+  @Input() user: any;
+  @Input() id: string;
+  @Input() date: any;
 
   constructor() { }
 
