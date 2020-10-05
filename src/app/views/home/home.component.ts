@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService, IData } from './home.service';
 import { Subscription, Observable } from 'rxjs';
+import { AuthService } from '../../auth.service';
 
 interface Ad {
   title: string;
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
   ads:Ad[];
 
 
-  constructor(private homeService: HomeService) {}
+  constructor(private homeService: HomeService, private auth:AuthService) {}
 
   ngOnInit() {
     this.categories$ = this.homeService.getCategories();

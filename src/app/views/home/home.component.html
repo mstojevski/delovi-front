@@ -8,7 +8,6 @@
         <ng-select
               [items]="categories$ | async"
               bindLabel="name"
-              autofocus
               bindValue="id"
               placeholder="Izaberi kategoriju"
             >
@@ -20,7 +19,6 @@
         <ng-select
               [items]="brands$ | async"
               bindLabel="name"
-              autofocus
               bindValue="id"
               placeholder="Izaberi marku"
             >
@@ -30,14 +28,8 @@
     <div class="p-col-9 ads">
       <h2>Aktuelni oglasi</h2>
       <div class="p-grid">
-        <div class="p-col-6">
-          <app-ad [date]="ad.createdAt" [special]="ad.favorite" [user]="ad.user" [id]="ad._id" [title]="ad.title" [description]="ad.description" [author]="ad.user.name" *ngFor="let ad of ads"></app-ad>
-        </div>
-        <!-- <div class="p-col-6">
-          <app-ad *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8]"></app-ad>
-        </div> -->
+          <app-ad class="p-col-6" [date]="ad.createdAt" [special]="ad.favorite" [user]="ad.user" [id]="ad._id" [title]="ad.title" [description]="ad.description" [author]="ad?.user?.name" *ngFor="let ad of ads"></app-ad>
       </div>
-
     </div>
   </div>
 </div> <!-- Home -->

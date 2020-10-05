@@ -1,7 +1,7 @@
 .ad {
   border:1px solid #eaeaea;
-  padding:20px 35px;
-  margin-bottom:30px;
+  margin-bottom:15px;
+  padding:20px;
   border-radius:5px;
   h2 {
     font-size:18px;
@@ -22,11 +22,12 @@
   font-style:italic;
   color:#0A2342;
   font-weight:bold;
-  margin-top:8px;
+  margin-top:4px;
+  margin-bottom:20px;
 }
 .ad-title {
   display:flex;
-  align-items:center;
+  align-items:top;
   justify-content: space-between;
   span {
     font-size:14px;
@@ -34,4 +35,8 @@
 }
 .read-more {
   font-weight:bold;
+}
+.ad-short-desc {
+  margin-bottom:20px;
+  color:#718093;
 }

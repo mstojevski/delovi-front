@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
+
+
 export interface IUser {
   email:string;
   password:string;
@@ -14,7 +16,8 @@ export interface IUser {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router,private toastr: ToastrService) {}
+  constructor(private http: HttpClient, private router: Router,private toastr: ToastrService) {
+  }
 
   TOKEN_KEY = 'token';
 
@@ -26,9 +29,20 @@ export class AuthService {
     return !!localStorage.getItem(this.TOKEN_KEY);
   }
 
+  public get isAuthenticatedAdmin() {
+    return !!localStorage.getItem(this.TOKEN_KEY);
+  }
+
+  public get isAdmin() {
+    return JSON.parse(atob(this.token.split('.')[1])).role === 'admin';
+  }
+  public get currentUserId() {
+    return JSON.parse(atob(this.token.split('.')[1])).userId;
+  }
+
   logout() {
     localStorage.removeItem(this.TOKEN_KEY);
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   saveToken(token) {
@@ -40,12 +54,12 @@ export class AuthService {
       .post(
         'http://localhost:3500/auth/register',
         { user },
+        {responseType: 'text'}
       )
       .subscribe(() => {
         this.toastr.success('Uspesno ste se registrovali');
         this.router.navigate(['/login']);
       }, (err) => {
-        console.log('err', err)
         this.toastr.error(err.message);
       });
   }

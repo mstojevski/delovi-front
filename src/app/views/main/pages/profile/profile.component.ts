@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProfileService } from './profile.service';
+import { ProfileService, IUserInfo } from './profile.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,13 +9,14 @@ import { Observable } from 'rxjs';
 })
 export class ProfileComponent implements OnInit {
 
-  userId;
-  user$: Observable<any>;
+  user$: Observable<IUserInfo>;
+  ads$: Observable<any>;
   constructor(private activatedRoute: ActivatedRoute, private profileService: ProfileService) { }
 
   ngOnInit(): void {
-    this.userId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.user$ = this.profileService.getUser(this.userId);
+    const userId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.user$ = this.profileService.getUser(userId);
+    this.ads$ = this.profileService.getAdsFromUser(userId);
   }
 
 }

@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./ad.component.scss']
 })
 export class AdComponent {
-  @Input() special = false;
+  @Input() special: boolean;
   @Input() title: string;
   @Input() description: string;
   @Input() status: string;
