@@ -6,3 +6,10 @@
 .footer-container {
   justify-content: space-between;
 }
+.favorite {
+  display:flex;
+  align-items:center;
+  label {
+    margin-right:8px;
+  }
+}

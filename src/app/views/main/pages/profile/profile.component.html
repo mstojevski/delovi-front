@@ -25,7 +25,7 @@
       <div class="p-col-9">
         <div class="ads" *ngIf="ads$ | async as ads">
           <h2>Aktivni Oglasi</h2>
-          <app-ad [date]="ad.createdAt" [special]="ad.favorite" [id]="ad._id" [title]="ad.title" [description]="ad.description" *ngFor="let ad of ads"></app-ad>
+          <app-ad [ad]="ad" *ngFor="let ad of ads"></app-ad>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IAd } from '../../../../models/ad.interface';
 
 @Component({
   selector: 'app-ad',
@@ -6,15 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./ad.component.scss']
 })
 export class AdComponent {
-  @Input() special: boolean;
-  @Input() title: string;
-  @Input() description: string;
-  @Input() status: string;
-  @Input() price: number;
-  @Input() author: string;
-  @Input() user: any;
-  @Input() id: string;
-  @Input() date: any;
+  @Input() ad: IAd;
 
   constructor() { }
 

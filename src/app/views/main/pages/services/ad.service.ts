@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 export interface ICreateAd {
   title: string;
   description: string;
   category: string;
   brand: string;
-  favorite: boolean
+  favorite: boolean;
+  price:number;
+  year: number;
+  model:string;
 }
 
 @Injectable({
@@ -15,6 +17,7 @@ export interface ICreateAd {
 
 
 export class AdService {
+ ad: any = {};
 
   constructor(private http: HttpClient) { }
 

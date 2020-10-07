@@ -29,10 +29,6 @@ export class AuthService {
     return !!localStorage.getItem(this.TOKEN_KEY);
   }
 
-  public get isAuthenticatedAdmin() {
-    return !!localStorage.getItem(this.TOKEN_KEY);
-  }
-
   public get isAdmin() {
     return JSON.parse(atob(this.token.split('.')[1])).role === 'admin';
   }

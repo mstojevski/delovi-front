@@ -12,14 +12,11 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./ad-basic-info.component.scss']
 })
 export class AdBasicInfoComponent implements OnInit {
-  brands$;
   categories$;
   adForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    favorite: new FormControl('', [Validators.required]),
     categories: new FormControl('', Validators.required),
-    brands: new FormControl('', Validators.required)
   });
   constructor(private router: Router, private adService: AdService, private homeService: HomeService, private toastr: ToastrService) { }
 
@@ -34,25 +31,13 @@ export class AdBasicInfoComponent implements OnInit {
   get categories() {
     return this.adForm.get('categories');
   }
-  get brands() {
-    return this.adForm.get('brands');
-  }
 
-  get favorite() {
-    return this.adForm.get('favorite');
-  }
 
   createAd() {
-    const ad: ICreateAd = {
-      title: this.title.value,
-      description: this.description.value,
-      category: this.categories.value,
-      brand: this.brands.value,
-      favorite: this.favorite.value
-    }
+
 
     if(this.adForm.valid) {
-      this.adService.createAd(ad);
+      // this.adService.createAd(ad);
       this.toastr.success('Uspesno!')
     }
 
@@ -60,11 +45,14 @@ export class AdBasicInfoComponent implements OnInit {
   }
 
   nextPage() {
+    this.adService.ad.title = this.title.value;
+    this.adService.ad.description = this.description.value;
+    this.adService.ad.category = this.categories.value;
     this.router.navigate(['ad-create/more-info']);
   }
 
   ngOnInit(): void {
-    this.brands$ = this.homeService.getBrends();
+
     this.categories$ = this.homeService.getCategories();
   }
 

@@ -28,7 +28,7 @@
     <div class="p-col-9 ads">
       <h2>Aktuelni oglasi</h2>
       <div class="p-grid">
-          <app-ad class="p-col-6" [date]="ad.createdAt" [special]="ad.favorite" [user]="ad.user" [id]="ad._id" [title]="ad.title" [description]="ad.description" [author]="ad?.user?.name" *ngFor="let ad of ads"></app-ad>
+          <app-ad class="p-col-6" [ad]="ad" *ngFor="let ad of ads"></app-ad>
       </div>
     </div>
   </div>

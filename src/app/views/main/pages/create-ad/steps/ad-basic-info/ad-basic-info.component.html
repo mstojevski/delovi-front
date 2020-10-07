@@ -23,27 +23,6 @@
             >
             </ng-select>
           </div>
-          <div class="p-field">
-            <label for="lastname">Marka</label>
-            <ng-select
-              [items]="brands$ | async"
-              bindLabel="name"
-              bindValue="_id"
-              formControlName="brands"
-              placeholder="Izaberite marku"
-            >
-            </ng-select>
-          </div>
-
-          <div class="p-field">
-            <div class="favorite">
-              <label for="">Oglas Favorizovan</label>
-              <p-checkbox formControlName="favorite" binary="true" inputId="binary"></p-checkbox>
-            </div>
-
-          </div>
-
-          <button class="btn primary" (click)="createAd()">Dodaj</button>
         </div>
       </form>
     </ng-template>

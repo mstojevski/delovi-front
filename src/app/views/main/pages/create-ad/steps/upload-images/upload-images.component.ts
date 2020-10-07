@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdService } from '../../../services/ad.service';
 
 @Component({
   selector: 'app-upload-images',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadImagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private adService:AdService) { }
 
   ngOnInit(): void {
+  }
+
+  createAd() {
+    this.adService.createAd(this.adService.ad);
   }
 
 }

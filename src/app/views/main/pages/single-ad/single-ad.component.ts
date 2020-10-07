@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SingleAdService } from './services/single-ad.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './single-ad.component.html',
@@ -12,9 +14,11 @@ export class SingleAdComponent implements OnInit {
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQg62R5k02T5jzJDhyhe0YeJnXv2-i5epa1ZA&usqp=CAU',
     thumbImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQg62R5k02T5jzJDhyhe0YeJnXv2-i5epa1ZA&usqp=CAU'
 }];
-  constructor() { }
+  constructor(private ad: SingleAdService, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.ad.getAd(id);
   }
 
 }
