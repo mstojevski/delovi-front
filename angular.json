@@ -34,7 +34,6 @@
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeflex/primeflex.css",
               "node_modules/primeicons/primeicons.css"
-
             ],
             "scripts": []
           },
@@ -132,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "delovi-mock"
+  "defaultProject": "delovi-mock",
+  "cli": {
+    "analytics": false
+  }
 }

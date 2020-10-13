@@ -1,10 +1,10 @@
-<div class="ad-container">
-<div class="single-ad">
+<div class="ad-container" *ngIf="adService.singleData$ | async as ad">
+  <div class="single-ad">
     <div class="p-grid">
       <div class="p-col-6">
         <div class="title">
-          <h1>Prodajem Delove za Land Rovera</h1>
-          <div class="favorite">
+          <h1>{{ ad.title }}</h1>
+          <div class="favorite" *ngIf="ad.favorite">
             <i class="fas fa-crown"></i>
           </div>
         </div>
@@ -12,62 +12,56 @@
         <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
         <h2>Dodatni opis</h2>
         <p class="ad-desc">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-          hic tenetur, sed quia labore enim nam magni totam et ipsum ut,
-          accusamus similique. Modi quae obcaecati quod est iure beatae. Lorem
-          ipsum dolor, sit amet consectetur adipisicing elit. Ipsa quidem,
-          facere atque facilis doloribus beatae. Autem vel necessitatibus beatae
-          voluptates, eius quo aperiam! Est corrupti suscipit alias hic
-          laudantium dignissimos.
+          {{ ad.description }}
         </p>
       </div>
       <div class="p-col-6">
         <div class="info">
           <ul>
-            <li><b>Stanje</b>: Polovno</li>
-            <li><b>Kategorija</b>: Delovi Sasije i motora</li>
-            <li><b>Model</b>: Land Rover</li>
-            <li><b>Godiste</b>: 2019</li>
-            <li><b>Cena</b>: Na upit</li>
+            <li><b>Stanje</b>: {{ad.status}}</li>
+            <li><b>Kategorija</b>: {{ ad.category }}</li>
+            <li><b>Model</b>: {{ ad.model }}</li>
+            <li><b>Godiste</b>: {{ ad.year }}</li>
+            <li><b>Cena</b>: {{ ad.price }}e</li>
           </ul>
-          <h2 class="ad-status">Status: <span class="ad-status active">Aktivan</span></h2>
+          <h2 class="ad-status">
+            Status:
+            <span [ngClass]="ad.sold ? 'sold' : 'active'" class="ad-status">{{
+              ad.sold ? "Prodat" : "Aktivan"
+            }}</span>
+          </h2>
         </div>
         <div class="ad-profile">
-          <img
-            src="https://media-exp1.licdn.com/dms/image/C4D03AQF5Xi081CHVdA/profile-displayphoto-shrink_400_400/0?e=1605744000&v=beta&t=Gj0t_Lfs2jfIvAgcgcQwn5PYzOhPl_uVK27lmE9xgeM"
-            alt=""
-            width="80"
-            height="80"
-          />
+          <img ngxGravatar fallback="mp" [email]="ad.user.email" size="80" />
           <div class="desc">
-            <h3>Milan Stojevski</h3>
-            <p><b>Mesto:</b> Pancevo</p>
-            <p><b>Kontakt:</b> 061/178-54-65</p>
-            <a class="read-more" [routerLink]="['/profile/123']">Svi oglasi</a>
+            <h3>{{ad.user.name}}</h3>
+            <p><b>Mesto:</b> {{ad.user.city}}</p>
+            <p><b>Kontakt:</b> {{ad.user.phone}}</p>
+            <a class="read-more" routerLink="/profile/{{ad.user._id}}">Svi oglasi</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-<div class="category-ads">
-  <h2>Oglasi iz slicne kategorije</h2>
-  <div class="category-container">
-    <div class="category-ad" *ngFor="let i of [1, 2, 3, 4]">
-      <h3>Ford Focus</h3>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2018_Ford_Focus_ST-Line_X_1.0.jpg/1200px-2018_Ford_Focus_ST-Line_X_1.0.jpg"
-        alt=""
-        width="140"
-      />
-      <ul class="info category">
-        <li><b>Stanje</b>: Polovno</li>
-        <li><b>Kategorija</b>: Delovi Sasije i motora</li>
-        <li><b>Model</b>: Land Rover</li>
-        <li><b>Godiste</b>: 2019</li>
-        <li><b>Cena</b>: Na upit</li>
-      </ul>
+  <div class="category-ads">
+    <h2>Oglasi iz slicne kategorije</h2>
+    <div class="category-container">
+      <div class="category-ad" *ngFor="let i of [1, 2, 3, 4]">
+        <h3>Ford Focus</h3>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2018_Ford_Focus_ST-Line_X_1.0.jpg/1200px-2018_Ford_Focus_ST-Line_X_1.0.jpg"
+          alt=""
+          width="140"
+        />
+        <ul class="info category">
+          <li><b>Stanje</b>: Polovno</li>
+          <li><b>Kategorija</b>: Delovi Sasije i motora</li>
+          <li><b>Model</b>: Land Rover</li>
+          <li><b>Godiste</b>: 2019</li>
+          <li><b>Cena</b>: Na upit</li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 </div>

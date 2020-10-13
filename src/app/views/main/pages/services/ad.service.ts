@@ -9,6 +9,7 @@ export interface ICreateAd {
   price:number;
   year: number;
   model:string;
+  status:string;
 }
 
 @Injectable({

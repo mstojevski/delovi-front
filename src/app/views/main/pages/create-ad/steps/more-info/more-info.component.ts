@@ -10,14 +10,14 @@ import { AdService } from '../../../services/ad.service';
   styleUrls: ['./more-info.component.scss'],
 })
 export class MoreInfoComponent implements OnInit {
-  statusArr = ['Novo', 'Polovno']
+  statusValues = ['Novo', 'Polovno']
   brands$;
   moreInfoForm = new FormGroup({
     brands: new FormControl('', Validators.required),
     model: new FormControl('', Validators.required),
     year: new FormControl('', Validators.required),
     price: new FormControl('', Validators.required),
-    favorite: new FormControl(''),
+    favorite: new FormControl(false),
     status: new FormControl('', Validators.required),
   })
   constructor(private router: Router, private homeService: HomeService, private adService: AdService) {}
@@ -43,16 +43,20 @@ export class MoreInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.brands$ = this.homeService.getBrends();
-    console.log('ad', this.adService.ad);
   }
 
   nextPage() {
+
     this.adService.ad.brand = this.brands.value;
     this.adService.ad.favorite = this.favorite.value;
     this.adService.ad.model = this.model.value;
     this.adService.ad.year = this.year.value;
     this.adService.ad.price = this.price.value;
-    this.router.navigate(['ad-create/upload-images']);
+    this.adService.ad.status = this.status.value;
+    if(this.moreInfoForm.valid) {
+      this.router.navigate(['ad-create/upload-images']);
+    }
+
   }
 
   prevPage() {

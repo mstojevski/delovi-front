@@ -14,11 +14,11 @@ export class SingleAdComponent implements OnInit {
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQg62R5k02T5jzJDhyhe0YeJnXv2-i5epa1ZA&usqp=CAU',
     thumbImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQg62R5k02T5jzJDhyhe0YeJnXv2-i5epa1ZA&usqp=CAU'
 }];
-  constructor(private ad: SingleAdService, private activatedRoute: ActivatedRoute ) { }
+  constructor(public adService: SingleAdService, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.ad.getAd(id);
+    // const id = this.activatedRoute.snapshot.paramMap.get('id');
+    // this.ad.getAd(id);
   }
 
 }

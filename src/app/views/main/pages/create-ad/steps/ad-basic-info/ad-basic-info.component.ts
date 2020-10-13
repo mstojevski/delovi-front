@@ -33,22 +33,15 @@ export class AdBasicInfoComponent implements OnInit {
   }
 
 
-  createAd() {
-
-
-    if(this.adForm.valid) {
-      // this.adService.createAd(ad);
-      this.toastr.success('Uspesno!')
-    }
-
-
-  }
-
   nextPage() {
     this.adService.ad.title = this.title.value;
     this.adService.ad.description = this.description.value;
     this.adService.ad.category = this.categories.value;
-    this.router.navigate(['ad-create/more-info']);
+
+    if(this.adForm.valid) {
+      this.router.navigate(['ad-create/more-info']);
+    }
+
   }
 
   ngOnInit(): void {
