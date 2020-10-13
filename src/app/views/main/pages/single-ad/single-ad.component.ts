@@ -17,8 +17,6 @@ export class SingleAdComponent implements OnInit {
   constructor(public adService: SingleAdService, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
-    // const id = this.activatedRoute.snapshot.paramMap.get('id');
-    // this.ad.getAd(id);
   }
 
 }

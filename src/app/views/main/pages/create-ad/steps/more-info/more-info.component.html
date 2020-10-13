@@ -1,6 +1,5 @@
 <div class="more-info">
   <p-card>
-    <ng-template pTemplate="title">Dodatne Informacije</ng-template>
     <ng-template pTemplate="content">
       <form [formGroup]="moreInfoForm">
         <div class="p-fluid">
@@ -56,16 +55,17 @@
     </ng-template>
     <ng-template pTemplate="footer">
       <div class="p-grid footer-container">
-        <p-button
+        <!-- <p-button
           label="Back"
           (onClick)="prevPage()"
           icon="pi pi-angle-left"
-        ></p-button>
+        ></p-button> -->
         <p-button
           label="Next"
           (onClick)="nextPage()"
           icon="pi pi-angle-right"
           iconPos="right"
+          [disabled]="moreInfoForm.invalid"
         ></p-button>
       </div>
     </ng-template>

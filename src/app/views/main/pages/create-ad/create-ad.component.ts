@@ -18,7 +18,7 @@ export class CreateAdComponent implements OnInit {
         routerLink: 'info',
       },
       {
-        label: 'Dodatne Informacije',
+        label: 'Još Informacija',
         routerLink: 'more-info',
       },
 

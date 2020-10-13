@@ -1,6 +1,5 @@
 <div class="basic-info">
   <p-card>
-    <ng-template pTemplate="title">Osnovne Informacije</ng-template>
     <ng-template pTemplate="content">
       <form action="" [formGroup]="adForm">
         <div class="p-fluid">
@@ -33,6 +32,7 @@
           (onClick)="nextPage()"
           icon="pi pi-angle-right"
           iconPos="right"
+          [disabled]="adForm.invalid"
         ></p-button>
       </div>
     </ng-template>

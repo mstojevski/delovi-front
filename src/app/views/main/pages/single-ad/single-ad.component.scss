@@ -44,6 +44,9 @@ h2 {
   align-items: center;
   border-radius: 5px;
   font-weight: bold;
+  &.gold {
+    border-color:#c59849;
+  }
   span {
     font-weight: normal;
   }

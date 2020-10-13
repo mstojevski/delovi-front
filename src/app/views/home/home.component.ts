@@ -18,7 +18,6 @@ interface Ad {
 })
 
 export class HomeComponent implements OnInit {
-  categorySubscription: Subscription;
   brands$: Observable<IData[]>
   categories$: Observable<IData[]>;
   ads:Ad[];
@@ -30,7 +29,7 @@ export class HomeComponent implements OnInit {
     this.categories$ = this.homeService.getCategories();
     this.brands$ = this.homeService.getBrends();
 
-    this.homeService.getAds().subscribe(data => this.ads = data);
+    this.homeService.loadData().subscribe(data => this.ads = data);
   }
 
 }

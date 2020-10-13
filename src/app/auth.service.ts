@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import {environment} from '../environments/environment'
 
 
 export interface IUser {
@@ -48,7 +48,7 @@ export class AuthService {
   register(user: IUser) {
     return this.http
       .post(
-        'http://localhost:3500/auth/register',
+        `${environment.apiUrl}/auth/register`,
         { user },
         {responseType: 'text'}
       )
@@ -61,7 +61,7 @@ export class AuthService {
   }
   login(email: string, password: string) {
     return this.http
-      .post('http://localhost:3500/auth/login', { email, password })
+      .post(`${environment.apiUrl}/auth/login`, { email, password })
       .subscribe((res: any) => {
         this.saveToken(res.token);
         this.router.navigate(['/home']);

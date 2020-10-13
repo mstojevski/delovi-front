@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../../../../../environments/environment'
 export interface ICreateAd {
   title: string;
   description: string;
@@ -23,6 +24,6 @@ export class AdService {
   constructor(private http: HttpClient) { }
 
   createAd(ad: ICreateAd) {
-    this.http.post('http://localhost:3500/ad/', ad).subscribe()
+    this.http.post(`${environment.apiUrl}/ad`, ad).subscribe()
   }
 }

@@ -22,12 +22,18 @@
           </div>
       </div>
     </div>
-      <div class="p-col-9">
-        <div class="ads" *ngIf="ads$ | async as ads">
+      <div class="p-col-9" *ngIf="ads$ | async as ads">
+        <div class="ads" *ngIf="ads.length; else noAd">
           <h2>Aktivni Oglasi</h2>
           <app-ad [ad]="ad" *ngFor="let ad of ads"></app-ad>
         </div>
+        <ng-template #noAd>
+          <p>Nemate ni jedan oglas, napravi svoj prvi oglas brzo i lako</p>
+          <br>
+          <button class="btn primary" (click)="navigateToCreateAd()">Napravi oglas</button>
+        </ng-template>
       </div>
     </div>
   </div>
 </div>
+

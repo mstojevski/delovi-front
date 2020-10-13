@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import {environment } from '../../../../../environments/environment'
 
 export interface IUserInfo {
   email: string;
@@ -16,9 +18,26 @@ export class ProfileService {
   constructor(private http: HttpClient) { }
 
   getUser(id: string): Observable<IUserInfo> {
-    return this.http.get<IUserInfo>(`http://localhost:3500/users/${id}`);
+    return this.http.get<IUserInfo>(`${environment.apiUrl}/users/${id}`);
   }
-  getAdsFromUser(id: string) {
-    return this.http.get(`http://localhost:3500/ad/${id}`);
+
+  loadData(id: string) {
+    return forkJoin([
+      this.http.get<any[]>(`${environment.apiUrl}/category`),
+      this.http.get<any[]>(`${environment.apiUrl}/ad/${id}`),
+    ]).pipe(
+      map(([categories, ads]) => {
+        const adsWithCategory = ads.map((ad) => {
+          const category = categories.find(one => one._id === ad.category).name;
+          return {
+            ...ad,
+            category
+          }
+        })
+        console.log('ads',adsWithCategory)
+        return adsWithCategory;
+
+      })
+    )
   }
 }

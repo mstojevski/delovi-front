@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import {StepsModule} from 'primeng/steps';
 import { CreateAdModule } from './pages/create-ad/create-ad.module';
 import { GravatarModule } from 'ngx-gravatar';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { GravatarModule } from 'ngx-gravatar';
     MainRoutingModule,
     NgImageSliderModule,
     ReactiveFormsModule,
+    RouterModule,
     SharedModule,
     StepsModule,
     CreateAdModule,

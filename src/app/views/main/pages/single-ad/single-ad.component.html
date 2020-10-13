@@ -31,7 +31,7 @@
             }}</span>
           </h2>
         </div>
-        <div class="ad-profile">
+        <div class="ad-profile" [class.gold]="ad.favorite">
           <img ngxGravatar fallback="mp" [email]="ad.user.email" size="80" />
           <div class="desc">
             <h3>{{ad.user.name}}</h3>
@@ -44,24 +44,26 @@
     </div>
   </div>
 
-  <div class="category-ads">
+  <div class="category-ads" *ngIf="adService.adsWithSameCategory$ | async as ads else noAds">
     <h2>Oglasi iz slicne kategorije</h2>
     <div class="category-container">
-      <div class="category-ad" *ngFor="let i of [1, 2, 3, 4]">
-        <h3>Ford Focus</h3>
+      <div class="category-ad" *ngFor="let ad of ads">
+        <h3>{{ad.title}}</h3>
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2018_Ford_Focus_ST-Line_X_1.0.jpg/1200px-2018_Ford_Focus_ST-Line_X_1.0.jpg"
           alt=""
           width="140"
         />
         <ul class="info category">
-          <li><b>Stanje</b>: Polovno</li>
-          <li><b>Kategorija</b>: Delovi Sasije i motora</li>
-          <li><b>Model</b>: Land Rover</li>
-          <li><b>Godiste</b>: 2019</li>
-          <li><b>Cena</b>: Na upit</li>
+          <li><b>Stanje</b>: {{ad.status}}</li>
+          <li><b>Model</b>: {{ad.model}}</li>
+          <li><b>Godiste</b>: {{ad.year}}</li>
+          <li><b>Cena</b>: {{ad.price}}</li>
         </ul>
       </div>
     </div>
   </div>
 </div>
+<ng-template #noAds>
+  Nema oglasa iz ove kategorije.
+</ng-template>
