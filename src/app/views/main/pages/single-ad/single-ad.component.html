@@ -3,14 +3,16 @@
     <div class="p-grid">
       <div class="p-col-6">
         <div class="title">
-          <h1>{{ ad.title }}</h1>
+          <h1 class="ad-title">{{ ad.title }}</h1>
           <div class="favorite" *ngIf="ad.favorite">
             <i class="fas fa-crown"></i>
           </div>
         </div>
+        <div class="slider">
+          <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
+        </div>
 
-        <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
-        <h2>Dodatni opis</h2>
+        <h2 class="ad-desc-title">Opis oglasa</h2>
         <p class="ad-desc">
           {{ ad.description }}
         </p>
@@ -44,8 +46,9 @@
     </div>
   </div>
 
-  <div class="category-ads" *ngIf="adService.adsWithSameCategory$ | async as ads else noAds">
+  <div class="category-ads" *ngIf="adService.adsWithSameCategory$ | async as ads">
     <h2>Oglasi iz slicne kategorije</h2>
+    <ng-container *ngIf="ads.length; else noAds">
     <div class="category-container">
       <div class="category-ad" *ngFor="let ad of ads">
         <h3>{{ad.title}}</h3>
@@ -62,6 +65,8 @@
         </ul>
       </div>
     </div>
+    </ng-container>
+
   </div>
 </div>
 <ng-template #noAds>

@@ -4,7 +4,7 @@
       <h2>{{ ad.title }}</h2>
       <h3 class="ad-spec">Kategorija: {{ad.category}}</h3>
     </div>
-    <span class="date">{{ ad.date | date: "dd/MM/yyyy" }}</span>
+    <span class="date">{{ ad.createdAt | date: "dd/MM/yyyy" }}</span>
   </div>
   <div class="ad-desc">
     <p class="ad-short-desc">{{ ad.description }}</p>

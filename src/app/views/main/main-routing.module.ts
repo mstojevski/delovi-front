@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SingleAdComponent } from './pages/single-ad/single-ad.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuard} from '../../guards/auth.guard';
-import { SingleAdService } from './pages/single-ad/services/single-ad.service';
+import { SingleAdService } from './pages/single-ad/service/single-ad.service';
 
 
 const routes: Routes = [

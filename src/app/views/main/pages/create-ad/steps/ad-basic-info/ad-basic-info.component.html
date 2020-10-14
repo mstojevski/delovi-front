@@ -1,18 +1,18 @@
 <div class="basic-info">
   <p-card>
     <ng-template pTemplate="content">
-      <form action="" [formGroup]="adForm">
+      <form [formGroup]="adForm">
         <div class="p-fluid">
           <div class="p-field">
-            <label for="firstname">Naslov</label>
+            <label class="label" for="firstname">Naslov</label>
             <input type="text" class="input" formControlName="title" placeholder="Naslov vašeg oglasa" />
           </div>
           <div class="p-field">
-            <label for="lastname">Opis</label>
-            <input type="text" class="input" formControlName="description" placeholder="Opis vašeg oglasa" />
+            <label class="label" for="firstname">Opis</label>
+            <textarea rows="6" class="textarea" formControlName="description" placeholder="Opis vašeg oglasa"></textarea>
           </div>
           <div class="p-field">
-            <label for="lastname">Kategorija</label>
+            <label class="label" for="lastname">Kategorija</label>
             <ng-select
               [items]="categories$ | async"
               bindLabel="name"

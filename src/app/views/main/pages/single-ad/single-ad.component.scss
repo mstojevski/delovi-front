@@ -1,23 +1,21 @@
 .ad-container {
   max-width: 90%;
   margin: 0 auto;
-}
-.single-ad {
-  padding-top: 60px;
-  a h2 {
-    margin-bottom: 30px;
-    margin-top: 30px;
-  }
+  padding-top:60px;
+  padding-bottom:60px;
 }
 .title {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   i {
     margin-left: 16px;
     font-size: 32px;
     color: #c59849;
   }
+}
+.ad-desc-title {
+  margin-top:30px;
 }
 
 .info {
@@ -51,16 +49,12 @@ h2 {
     font-weight: normal;
   }
   img {
-    margin-right: 10px;
+    margin-right: 12px;
   }
 }
 
 // Similar ads
 .category-ads {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 60px;
-
   h2 {
     margin-bottom: 30px;
     margin-top: 50px;

@@ -1,17 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService, IData } from './home.service';
-import { Subscription, Observable } from 'rxjs';
+import { HomeService, IData } from './service/home.service';
+import { Observable } from 'rxjs';
 import { AuthService } from '../../auth.service';
+import { IAd } from 'src/app/models/ad.interface';
 
-interface Ad {
-  title: string;
-  description: string;
-  author: string;
-  _id: string;
-  user: any;
-  favorite:boolean;
-  createdAt: any;
-}
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
@@ -20,7 +12,7 @@ interface Ad {
 export class HomeComponent implements OnInit {
   brands$: Observable<IData[]>
   categories$: Observable<IData[]>;
-  ads:Ad[];
+  ads$:Observable<IAd[]>;
 
 
   constructor(private homeService: HomeService, private auth:AuthService) {}
@@ -28,8 +20,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.categories$ = this.homeService.getCategories();
     this.brands$ = this.homeService.getBrends();
-
-    this.homeService.loadData().subscribe(data => this.ads = data);
+    this.ads$ = this.homeService.loadData();
   }
 
 }

@@ -4,37 +4,18 @@ import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import {environment} from '../../../../../../environments/environment';
+import { IAd } from 'src/app/models/ad.interface';
+import { IData } from 'src/app/views/home/service/home.service';
 
-interface IContact {
-  name: string;
-  phone: string;
-  email:string;
-  city: string;
-  _id: string;
-}
-interface ISingleAd {
-  brand: string;
-  category: string;
-  createdAt: Date;
-  description: string;
-  favorite: boolean;
-  model: string;
-  price: number;
-  sold: boolean;
-  title: string;
-  updatedAt: Date;
-  year: number;
-  user:IContact;
-  status:string;
-}
+
 @Injectable({
   providedIn: 'root'
 })
 export class SingleAdService implements Resolve<any> {
-  private _singleAdData = new BehaviorSubject<ISingleAd>(null);
+  private _singleAdData = new BehaviorSubject<IAd>(null);
   singleData$ = this._singleAdData.asObservable();
 
-  private _adsWithSameCategory = new BehaviorSubject<null>(null);
+  private _adsWithSameCategory = new BehaviorSubject<IAd[]>(null);
   adsWithSameCategory$ = this._adsWithSameCategory.asObservable();
 
   constructor(private http: HttpClient) { }
@@ -44,9 +25,9 @@ export class SingleAdService implements Resolve<any> {
     state: RouterStateSnapshot
   ): Observable<any>|Promise<any>|any {
     return forkJoin([
-      this.http.get<any>(`${environment.apiUrl}/ad`),
-      this.http.get<any[]>(`${environment.apiUrl}/category`),
-      this.http.get<any[]>(`${environment.apiUrl}/brand`),
+      this.http.get<IAd[]>(`${environment.apiUrl}/ad`),
+      this.http.get<IData[]>(`${environment.apiUrl}/category`),
+      this.http.get<IData[]>(`${environment.apiUrl}/brand`),
 
     ]).pipe(
       tap(([ads, categories, brands]) => {

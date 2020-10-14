@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProfileService, IUserInfo } from './profile.service';
 import { Observable } from 'rxjs';
+import { IAd } from 'src/app/models/ad.interface';
+import { ProfileService, IUserInfo } from './service/profile.service';
 
 @Component({
   templateUrl: './profile.component.html',
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 export class ProfileComponent implements OnInit {
 
   user$: Observable<IUserInfo>;
-  ads$: Observable<any>;
+  ads$: Observable<IAd[]>;
   constructor(private route: Router, private activatedRoute: ActivatedRoute, private profileService: ProfileService) { }
 
   navigateToCreateAd() {

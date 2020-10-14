@@ -6,7 +6,7 @@ import { AuthService, IUser } from '../../auth.service'
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
@@ -34,9 +34,6 @@ export class RegisterComponent implements OnInit {
   }
   constructor(private auth: AuthService) { }
 
-  ngOnInit(): void {
-  }
-
   register() {
     const user: IUser = {
       email: this.email.value,
@@ -45,7 +42,7 @@ export class RegisterComponent implements OnInit {
       phone: this.phone.value,
       city: this.city.value
     }
-    this.auth.register(user)
+    this.auth.register(user);
   }
 
 }

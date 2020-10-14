@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SingleAdService } from './services/single-ad.service';
 import { ActivatedRoute } from '@angular/router';
+import { SingleAdService } from './service/single-ad.service';
 
 @Component({
   templateUrl: './single-ad.component.html',

@@ -25,8 +25,8 @@
             </ng-select>
       </div>
     </div>
-    <div class="p-col-9 ads">
-      <h2>Aktuelni oglasi</h2>
+    <div class="p-col-9 ads" *ngIf="ads$ | async as ads">
+      <h2>Trenutno aktivnih oglasa: {{ads.length}}</h2>
       <div class="p-grid">
           <app-ad class="p-col-6" [ad]="ad" *ngFor="let ad of ads"></app-ad>
       </div>

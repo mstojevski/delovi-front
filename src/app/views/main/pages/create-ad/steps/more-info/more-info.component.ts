@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { HomeService } from '../../../../../home/home.service';
-import { AdService } from '../../../services/ad.service';
+import { HomeService } from '../../../../../home/service/home.service';
+import { AdService } from '../../services/ad.service';
 
 @Component({
   selector: 'app-more-info',

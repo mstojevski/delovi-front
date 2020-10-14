@@ -255,16 +255,28 @@ p {
   color: #a4aeba;
 }
 .textarea {
+  display:block;
   background: #ffffff;
   border: 1px solid #a4aeba;
   border-radius: 4px;
-  resize: none;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 18px;
   padding-left: 12px;
   padding-top: 12px;
   font-weight: 600;
   color: #0a3d62;
+  width:100%;
+  resize:none;
+  font-weight:normal;
+  font-family: "Lato", sans-serif;
+
+  &.ng-touched.ng-invalid {
+    border: 1px solid #ff5f57;
+  }
+
+  &.ng-touched.ng-valid {
+    border: 1px solid #20ac8c;
+  }
 
   &:focus {
     outline: none;
@@ -272,10 +284,13 @@ p {
     box-shadow: 0 0 4px #695eee;
   }
 
+
   &::placeholder {
-    color: #718093;
+    color: #a4aeba;
+    font-weight:normal;
     font-size: 14px;
     line-height: 14px;
+    font-family: "Lato", sans-serif;
   }
 }
 
@@ -328,4 +343,7 @@ p {
     }
   }
 }
-
+.p-card {
+  border:1px solid #eaeaea;
+  box-shadow:none !important;
+}
