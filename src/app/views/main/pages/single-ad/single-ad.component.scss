@@ -34,7 +34,8 @@ h2 {
   margin-bottom: 20px;
 }
 .ad-profile {
-  margin-top: 100px;
+  margin-top: 50px;
+  margin-left:150px;
   max-width: 400px;
   border: 4px dotted #eaeaea;
   display: flex;
@@ -49,7 +50,7 @@ h2 {
     font-weight: normal;
   }
   img {
-    margin-right: 12px;
+    margin-right: 20px;
   }
 }
 
@@ -84,4 +85,29 @@ h2 {
 }
 .ad-status.sold {
   color: red;
+}
+.btn-sold {
+  margin-left:15px;
+}
+.info li {
+  margin-bottom:20px;
+}
+.info.right {
+  margin-left:150px;
+}
+.read-more {
+  display:inline-block;
+  margin-top:5px;
+  color:#f18805;
+}
+.desc {
+  h3 {
+    margin-bottom:5px;
+    margin-top:5px;
+    font-style: italic;
+  }
+  p {
+    margin-bottom:5px;
+    font-weight:normal;
+  }
 }

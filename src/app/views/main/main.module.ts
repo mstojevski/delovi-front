@@ -11,6 +11,7 @@ import {StepsModule} from 'primeng/steps';
 import { CreateAdModule } from './pages/create-ad/create-ad.module';
 import { GravatarModule } from 'ngx-gravatar';
 import { RouterModule } from '@angular/router';
+import {TableModule} from 'primeng/table';
 
 
 @NgModule({
@@ -23,8 +24,10 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     SharedModule,
     StepsModule,
+    TableModule,
     CreateAdModule,
     GravatarModule
   ],
+
 })
 export class MainModule {}

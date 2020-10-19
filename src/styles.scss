@@ -156,6 +156,9 @@ p {
 /*
   # Inputs
 */
+.p-button:disabled {
+  cursor:not-allowed !important;
+}
 
 .label {
   display: block;

@@ -4,15 +4,15 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { HomeComponent } from './views/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
-import { AdminComponent } from './views/admin/admin.component';
 import { AdminGuard } from './guards/admin.guard';
+import { HomeService } from './views/home/service/home.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard], resolve:{'items': HomeService} },
   { path: 'register', component: RegisterComponent },
+  { path: 'admin', canActivate: [AdminGuard], loadChildren: () => import('./views/admin/admin.module').then(m => m.AdminModule) },
 ];
 
 @NgModule({

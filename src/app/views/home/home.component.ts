@@ -18,9 +18,10 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService, private auth:AuthService) {}
 
   ngOnInit() {
+    this.ads$ = this.homeService.loadData();
     this.categories$ = this.homeService.getCategories();
     this.brands$ = this.homeService.getBrends();
-    this.ads$ = this.homeService.loadData();
+
   }
 
 }

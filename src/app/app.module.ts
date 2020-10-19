@@ -15,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './views/shared/shared.module';
 import { CreateAdModule } from './views/main/pages/create-ad/create-ad.module';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
-import { AdminComponent } from './views/admin/admin.component';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { AdminComponent } from './views/admin/admin.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    AdminComponent,
   ],
   imports: [
     BrowserModule,

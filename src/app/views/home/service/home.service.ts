@@ -4,6 +4,7 @@ import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {environment} from '../../../../environments/environment'
 import { IAd } from 'src/app/models/ad.interface';
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 export interface IData {
   _id: string;
   name:string;
@@ -11,7 +12,7 @@ export interface IData {
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService {
+export class HomeService implements Resolve<Observable<IAd[]>> {
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<IData[]> {
@@ -20,7 +21,13 @@ export class HomeService {
   getBrends(): Observable<IData[]> {
     return this.http.get<IData[]>(`${environment.apiUrl}/brand`)
   }
-  loadData(): Observable<IAd[]> {
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAd[]> {
+    return this.loadData();
+  }
+
+
+  loadData():Observable<IAd[]> {
     return forkJoin([
       this.http.get<IData[]>(`${environment.apiUrl}/category`),
       this.http.get<IAd[]>(`${environment.apiUrl}/ad`),

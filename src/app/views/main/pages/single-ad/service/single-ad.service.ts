@@ -45,4 +45,7 @@ export class SingleAdService implements Resolve<any> {
       })
     )
   }
+  setStatusSold(id:string) {
+    return this.http.put(`${environment.apiUrl}/ad/${id}`, {sold: true})
+  }
 }

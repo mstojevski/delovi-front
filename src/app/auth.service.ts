@@ -54,7 +54,7 @@ export class AuthService {
       )
       .subscribe(() => {
         this.toastr.success('Uspesno ste se registrovali');
-        this.router.navigate(['/login']);
+        this.login(user.email, user.password);
       }, (err) => {
         this.toastr.error(err.message);
       });
