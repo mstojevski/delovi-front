@@ -4,7 +4,7 @@ import { forkJoin, BehaviorSubject } from 'rxjs';
 import { IData } from '../../home/service/home.service';
 import { IAd } from 'src/app/models/ad.interface';
 import { environment } from 'src/environments/environment';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,9 @@ export class AdminService {
         this._ads.next(adsWithCategory);
       })
     )
+  }
+  getAllAds() {
+    return this.http.get(`${environment.apiUrl}/ad/all`);
   }
   deleteAd(id: string) {
     return this.http.delete(`${environment.apiUrl}/ad/${id}`,  {responseType: 'text'}).pipe(
