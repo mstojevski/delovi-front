@@ -19,7 +19,7 @@
               <td>{{ad.user.name}}</td>
               <td>{{ad.sold ? 'Prodat' : 'Aktivan'}}</td>
               <td>
-                <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" ></button>
+                <button (click)="updateStatus(ad._id)" *ngIf="!ad.sold" pButton icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" ></button>
                 <button (click)="deleteAd(ad._id)" pButton icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
             </td>
           </tr>

@@ -9,9 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import {StepsModule} from 'primeng/steps';
 import { CreateAdModule } from './pages/create-ad/create-ad.module';
-import { GravatarModule } from 'ngx-gravatar';
 import { RouterModule } from '@angular/router';
 import {TableModule} from 'primeng/table';
+import { GravatarModule } from 'ngx-gravatar';
 
 
 @NgModule({

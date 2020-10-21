@@ -33,26 +33,7 @@ h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
-.ad-profile {
-  margin-top: 50px;
-  margin-left:150px;
-  max-width: 400px;
-  border: 4px dotted #eaeaea;
-  display: flex;
-  padding: 8px 10px;
-  align-items: center;
-  border-radius: 5px;
-  font-weight: bold;
-  &.gold {
-    border-color:#c59849;
-  }
-  span {
-    font-weight: normal;
-  }
-  img {
-    margin-right: 20px;
-  }
-}
+
 
 // Similar ads
 .category-ads {

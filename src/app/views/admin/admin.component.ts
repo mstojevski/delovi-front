@@ -14,11 +14,12 @@ import { MessageService } from 'primeng/api';
 export class AdminComponent implements OnInit {
   ads$: Observable<IAd[]> = this.adminService.ads$
   constructor(private adminService: AdminService) { }
-  changeStatus() {
 
-  }
   deleteAd(id:string) {
     this.adminService.deleteAd(id).subscribe();
+  }
+  updateStatus(id: string) {
+    this.adminService.updateStatus(id).subscribe();
   }
   ngOnInit(): void {
     this.adminService.getAd().subscribe();

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, Observable, BehaviorSubject } from 'rxjs';
+import { forkJoin, BehaviorSubject } from 'rxjs';
 import { IData } from '../../home/service/home.service';
 import { IAd } from 'src/app/models/ad.interface';
 import { environment } from 'src/environments/environment';
@@ -10,7 +10,7 @@ import { map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AdminService {
-  private _ads = new BehaviorSubject<IAd[]>(null);
+  private _ads = new BehaviorSubject<IAd[]>([]);
   ads$ = this._ads.asObservable();
   constructor(private http: HttpClient) { }
 
@@ -32,8 +32,20 @@ export class AdminService {
     )
   }
   deleteAd(id: string) {
-    const filteredData = this._ads.value.filter((one) => one._id !== id);
-    this._ads.next(filteredData);
-    return this.http.delete(`${environment.apiUrl}/ad/${id}`);
+    return this.http.delete(`${environment.apiUrl}/ad/${id}`,  {responseType: 'text'}).pipe(
+      tap(() => {
+        const filteredData = this._ads.value.filter((one) => one._id !== id);
+        this._ads.next(filteredData);
+      })
+    );
+  }
+
+  updateStatus(id: string) {
+    return this.http.put(`${environment.apiUrl}/ad/${id}`, {sold: true}).pipe(
+      tap((ad:IAd) => {
+        const adUpdated = this._ads.value.find(one => one._id === ad._id);
+        adUpdated.sold = true;
+      })
+    )
   }
 }

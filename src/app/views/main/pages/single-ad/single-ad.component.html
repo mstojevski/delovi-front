@@ -34,15 +34,8 @@
             <button (click)="setStatusToSold(ad._id)" *ngIf="currentUser === ad.user._id" class="btn primary btn-sold">Ukloni oglas</button>
           </h2>
         </div>
-        <div class="ad-profile" [class.gold]="ad.favorite">
-          <img ngxGravatar fallback="mp" [email]="ad.user.email" size="80" />
-          <div class="desc">
-            <h3>{{ad.user.name}}</h3>
-            <p><b>Mesto:</b> {{ad.user.city}}</p>
-            <p><b>Kontakt:</b> {{ad.user.phone}}</p>
-            <a class="read-more" routerLink="/profile/{{ad.user._id}}">Svi oglasi</a>
-          </div>
-        </div>
+
+        <app-profile-card [user]="ad.user" [favorite]="ad.favorite" [_id]="ad.user._id"></app-profile-card>
 
       </div>
     </div>
