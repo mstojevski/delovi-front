@@ -25,3 +25,16 @@
     margin-bottom:18px;
   }
 }
+.filters {
+  max-width:800px;
+  margin:0 auto;
+  .filter-item {
+    margin-right:30px;
+  }
+}
+.ad-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+

@@ -24,8 +24,7 @@
     </div>
       <div class="p-col-8" *ngIf="ads$ | async as ads">
         <div class="ads" *ngIf="ads.length; else noAd">
-          <h2>Aktivni Oglasi</h2>
-          <app-ad [ad]="ad" *ngFor="let ad of ads"></app-ad>
+          <app-ad full="full" [ad]="ad" *ngFor="let ad of ads"></app-ad>
         </div>
         <ng-template #noAd>
           <p>Nemate ni jedan oglas, napravi svoj prvi oglas brzo i lako</p>

@@ -24,14 +24,17 @@ export class ProfileService {
   loadData(id: string) {
     return forkJoin([
       this.http.get<any[]>(`${environment.apiUrl}/category`),
+      this.http.get<any[]>(`${environment.apiUrl}/brand`),
       this.http.get<any[]>(`${environment.apiUrl}/ad/${id}`),
     ]).pipe(
-      map(([categories, ads]) => {
+      map(([categories,brands, ads]) => {
         const adsWithCategory = ads.map((ad) => {
           const category = categories.find(one => one._id === ad.category).name;
+          const brand = brands.find(one => one._id === ad.brand).name;
           return {
             ...ad,
-            category
+            category,
+            brand
           }
         })
         return adsWithCategory;

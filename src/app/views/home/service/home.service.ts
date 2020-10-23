@@ -30,14 +30,17 @@ export class HomeService implements Resolve<Observable<IAd[]>> {
   loadData():Observable<IAd[]> {
     return forkJoin([
       this.http.get<IData[]>(`${environment.apiUrl}/category`),
+      this.http.get<IData[]>(`${environment.apiUrl}/brand`),
       this.http.get<IAd[]>(`${environment.apiUrl}/ad`),
     ]).pipe(
-      map(([categories, ads]) => {
+      map(([categories, brends, ads]) => {
         const adsWithCategory = ads.map((ad) => {
           const category = categories.find(one => one._id === ad.category).name;
+          const brand = brends.find(one => one._id === ad.brand).name;
           return {
             ...ad,
-            category
+            category,
+            brand
           }
         })
         return adsWithCategory;

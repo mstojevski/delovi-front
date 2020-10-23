@@ -10,24 +10,27 @@
               bindLabel="name"
               bindValue="_id"
               formControlName="brands"
+              [clearable]="false"
+              [searchable]="false"
               placeholder="Izaberite marku"
+
             >
             </ng-select>
           </div>
 
           <div class="p-field">
             <label for="">Model</label>
-            <input type="text" formControlName="model" class="input" />
+            <input type="text" formControlName="model" class="input" placeholder="Model" />
           </div>
 
           <div class="p-field">
             <label for="">Godište</label>
-            <input type="number" formControlName="year" class="input" />
+            <input type="number" min="0" formControlName="year" class="input" placeholder="Godište" />
           </div>
 
           <div class="p-field">
             <label for="">Cena</label>
-            <input type="number" formControlName="price" class="input" />
+            <input placeholder="Cena" type="number" min="0" formControlName="price" class="input" />
           </div>
 
           <div class="p-field">
@@ -35,7 +38,10 @@
             <ng-select
               [items]="statusValues"
               formControlName="status"
+              [clearable]="false"
+              [searchable]="false"
               placeholder="Status"
+
             >
             </ng-select>
           </div>

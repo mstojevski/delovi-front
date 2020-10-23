@@ -16,7 +16,7 @@ export class AdBasicInfoComponent implements OnInit {
   adForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    categories: new FormControl('', Validators.required),
+    categories: new FormControl(null, Validators.required),
   });
   constructor(private router: Router, private adService: AdService, private homeService: HomeService, private toastr: ToastrService) { }
 

@@ -1,20 +1,22 @@
-<div class="ad" [class.special]="ad?.favorite">
-  <div class="ad-title">
-    <div>
-      <h2>{{ ad.title }}</h2>
-      <h3 class="ad-spec">Kategorija: {{ad.category}}</h3>
+<div class="ad-item">
+  <div class="ad" [class.special]="ad?.favorite">
+    <div class="ad-header">
+      <h3>{{ad.title}}</h3>
+      <span class="price">{{ad.price}}din.</span>
     </div>
-    <span class="date">{{ ad.createdAt | date: "dd/MM/yyyy" }}</span>
+    <div class="ad-sub-header">
+    <h4 class="ad-category">{{ad.category}}</h4>
+      <div class="seperator"></div>
+      <h4 class="ad-model">{{ad.brand}}</h4>
+    </div>
+    <div class="ad-description" [class.full]="full">
+      {{ad.description}}
+    </div>
   </div>
-  <div class="ad-desc">
-    <p class="ad-short-desc">{{ ad.description }}</p>
-    <div class="read-more"><a [routerLink]="['/ad', ad._id]">Pogledaj Oglas</a></div>
+  <div class="ad-footer" [class.full]="full">
+    <h4><a class="author" [routerLink]="['/profile', ad.user._id]">{{ad.user.name}}</a></h4>
+    <a class="read-more" [routerLink]="['/ad', ad._id]">Pogledaj Oglas</a>
   </div>
 
-  <span class="ad-footer">
-    <h3 *ngIf="ad.user.name" class="ad-spec">
-      Oglas kreirao: <a [routerLink]="['/profile', ad.user._id]">{{ ad.user.name }}</a>
-    </h3>
-
-  </span>
 </div>
+

@@ -47,6 +47,9 @@
   }
 }
 .ads {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
   h2 {
     font-size:32px;
     text-align:center;

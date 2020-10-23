@@ -13,7 +13,7 @@ export class MoreInfoComponent implements OnInit {
   statusValues = ['Novo', 'Polovno']
   brands$;
   moreInfoForm = new FormGroup({
-    brands: new FormControl('', Validators.required),
+    brands: new FormControl(null, Validators.required),
     model: new FormControl('', Validators.required),
     year: new FormControl('', Validators.required),
     price: new FormControl('', Validators.required),

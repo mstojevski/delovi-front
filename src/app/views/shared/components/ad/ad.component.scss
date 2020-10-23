@@ -1,42 +1,110 @@
-.ad {
+.ad-item {
+  border-radius:6px;
   border:1px solid #eaeaea;
-  margin-bottom:15px;
-  padding:20px;
-  border-radius:5px;
-  h2 {
-    font-size:18px;
-    margin-bottom:10px;
-  }
+  box-sizing: border-box;
+  border-radius: 6px;
+  display:flex;
+  flex-direction: column;
+  flex:1;
+  justify-content: space-between;
+  height:100%;
+  box-shadow: 2px 3px 6px rgba(53, 59, 72, 0.1);
+}
+.ad {
+  padding-top:16px;
+  padding-left:16px;
+  padding-right:16px;
+  flex:1;
   &.special {
-    border:2px dotted #C59849;
+    background-color: #FCF6E3;
   }
 }
-
-.ad-footer {
+.ad-header {
   display:flex;
   align-items:center;
   justify-content: space-between;
-  padding-top:15px;
-}
-.ad-spec {
-  font-style:italic;
-  color:#0A2342;
-  font-weight:bold;
-  margin-top:4px;
-  margin-bottom:20px;
-}
-.ad-title {
-  display:flex;
-  align-items:top;
-  justify-content: space-between;
-  span {
-    font-size:14px;
+  margin-bottom:12px;
+  h3 {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    color: #364D63;
+  }
+  .price {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    color: #E6B31A;
   }
 }
-.read-more {
-  font-weight:bold;
+.ad-sub-header {
+  display:flex;
+  align-items:center;
 }
-.ad-short-desc {
-  margin-bottom:20px;
-  color:#718093;
+.seperator {
+  width:4px;
+  height: 4px;
+  border-radius:50%;
+  background:#8A99A8;
+  margin-left:5px;
+  margin-right:5px;
+}
+.ad-category, .ad-model {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  color: #364C63;
+}
+.ad-sub-header {
+  margin-bottom:10px;
+}
+.ad-description {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #8A99A8;
+  margin-bottom:16px;
+  max-width:328px;
+}
+.ad-footer {
+  display:flex;
+  justify-content: space-between;
+  align-content: flex-end;
+  background: #F0F2F4;
+  padding-top:12px;
+  padding-bottom:12px;
+  padding-left:16px;
+  padding-right:16px;
+  font-size: 14px;
+  line-height: 14px;
+  border-top: 1px solid #E8EBEE;
+  &.full {
+    max-width:100%;
+    justify-content: flex-start;
+  }
+  .author {
+    color:#687B8D;
+    font-weight: normal;
+  }
+  .read-more {
+    font-weight: bold;
+    color:#1FBC97;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .author {
+    color:#687B8D;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

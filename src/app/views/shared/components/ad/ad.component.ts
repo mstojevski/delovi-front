@@ -8,6 +8,7 @@ import { IAd } from '../../../../models/ad.interface';
 })
 export class AdComponent {
   @Input() ad: IAd;
+  @Input() full: 'full'
 
   constructor() { }
 
