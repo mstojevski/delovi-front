@@ -13,6 +13,10 @@ export class UploadImagesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  upload(event) {
+    console.log('event', event);
+  }
+
   createAd() {
     this.adService.createAd(this.adService.ad);
   }

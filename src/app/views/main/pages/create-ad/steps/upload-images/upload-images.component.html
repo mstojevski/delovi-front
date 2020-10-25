@@ -1,5 +1,5 @@
 <div class="upload">
-  <p-fileUpload chooseLabel="dodaj slike" name="myfile[]" url="./upload.php" multiple="multiple"
+  <p-fileUpload (uploadHandler)="upload($event)" chooseLabel="dodaj slike" name="images"  multiple="multiple"
         accept="image/*" [auto]="true"></p-fileUpload>
 
 </div>

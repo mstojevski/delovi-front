@@ -6,9 +6,10 @@
               <th>Naslov</th>
               <th>Opis</th>
               <th>Kategorija</th>
+              <th>Datum Kreiranja</th>
               <th>Autor</th>
               <th>Status</th>
-              <th>Akcije</th>
+              <th>Prodat/Obrisan</th>
           </tr>
       </ng-template>
       <ng-template pTemplate="body" let-ad>
@@ -16,6 +17,7 @@
               <td>{{ad.title}}</td>
               <td>{{ad.description}}</td>
               <td>{{ad.category}}</td>
+              <td>{{ad.createdAt | date}}</td>
               <td>{{ad.user.name}}</td>
               <td>{{ad.sold ? 'Prodat' : 'Aktivan'}}</td>
               <td>
