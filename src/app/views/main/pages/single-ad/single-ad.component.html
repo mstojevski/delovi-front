@@ -8,9 +8,25 @@
             <i class="fas fa-crown"></i>
           </div>
         </div>
-        <div class="slider">
-          <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
-        </div>
+        <p-galleria
+          [showItemNavigators]="true"
+          [circular]="true"
+          [(value)]="ad.images"
+          [containerStyle]="{ 'max-width': '640px' }"
+          [numVisible]="5"
+        >
+          <ng-template pTemplate="item" let-item>
+            <img width="640" height="360" [src]="item.previewImageUrl" style="width: 100%" />
+          </ng-template>
+          <ng-template wi pTemplate="thumbnail" let-item>
+            <img
+              class="image-item"
+              width="60"
+              height="60"
+              [src]="item.previewImageUrl"
+            />
+          </ng-template>
+        </p-galleria>
 
         <h2 class="ad-desc-title">Opis oglasa</h2>
         <p class="ad-desc">
@@ -18,51 +34,51 @@
         </p>
       </div>
       <div class="p-col-5">
-        <div class="info right">
-          <ul>
-            <li><b>Stanje</b>: {{ad.status}}</li>
-            <li><b>Kategorija</b>: {{ ad.category }}</li>
-            <li><b>Model</b>: {{ ad.model }}</li>
-            <li><b>Godiste</b>: {{ ad.year }}</li>
-            <li><b>Cena</b>: {{ ad.price }}RSD</li>
-          </ul>
-          <h2 class="ad-status">
-            Status:
-            <span [ngClass]="ad.sold ? 'sold' : 'active'" class="ad-status">{{
-              ad.sold ? "Prodat" : "Aktivan"
-            }}</span>
-            <button (click)="setStatusToSold(ad._id)" *ngIf="currentUser === ad.user._id" class="btn primary btn-sold">Ukloni oglas</button>
-          </h2>
+        <div class="ad-basic-info">
+          <h2 class="ad-desc-title">Osnovne informacije</h2>
+          <div class="info">
+            <ul>
+              <li><b>Stanje</b>: {{ ad.status }}</li>
+              <li><b>Kategorija</b>: {{ ad.category }}</li>
+              <li><b>Model</b>: {{ ad.model }}</li>
+              <li><b>Godiste</b>: {{ ad.year }}</li>
+              <li><b>Cena</b>: {{ ad.price }}RSD</li>
+            </ul>
+            <h2 class="ad-status">
+              Status:
+              <span [ngClass]="ad.sold ? 'sold' : 'active'" class="ad-status">{{
+                ad.sold ? "Prodat" : "Aktivan"
+              }}</span>
+              <button
+                (click)="setStatusToSold(ad._id)"
+                *ngIf="currentUser === ad.user._id"
+                class="btn primary btn-sold"
+              >
+                Ukloni oglas
+              </button>
+            </h2>
+          </div>
+          <div class="profile-card">
+            <app-profile-card
+              [user]="ad.user"
+              [_id]="ad.user._id"
+            ></app-profile-card>
+          </div>
         </div>
-
-        <app-profile-card [user]="ad.user" [favorite]="ad.favorite" [_id]="ad.user._id"></app-profile-card>
       </div>
     </div>
   </div>
 
-  <div class="category-ads" *ngIf="adService.adsWithSameCategory$ | async as ads">
-    <h2>Još oglasa iz kategorije {{ad.category}}</h2>
+  <div
+    class="category-ads"
+    *ngIf="adService.adsWithSameCategory$ | async as ads"
+  >
+    <h2>Još oglasa iz kategorije {{ ad.category }}</h2>
     <ng-container *ngIf="ads.length; else noAds">
-    <div class="category-container">
-      <div class="category-ad" *ngFor="let ad of ads">
-        <h3>{{ad.title}}</h3>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2018_Ford_Focus_ST-Line_X_1.0.jpg/1200px-2018_Ford_Focus_ST-Line_X_1.0.jpg"
-          alt=""
-          width="140"
-        />
-        <ul class="info category">
-          <li><b>Stanje</b>: {{ad.status}}</li>
-          <li><b>Model</b>: {{ad.model}}</li>
-          <li><b>Godiste</b>: {{ad.year}}</li>
-          <li><b>Cena</b>: {{ad.price}}din.</li>
-        </ul>
+      <div class="category-container">
+        <app-ad [ad]="ad" *ngFor="let ad of ads"></app-ad>
       </div>
-    </div>
     </ng-container>
-
   </div>
 </div>
-<ng-template #noAds>
-  Nema oglasa iz ove kategorije.
-</ng-template>
+<ng-template #noAds> Nema oglasa iz ove kategorije. </ng-template>

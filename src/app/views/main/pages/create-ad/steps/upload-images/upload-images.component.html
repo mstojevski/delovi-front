@@ -1,7 +1,16 @@
 <div class="upload">
-  <p-fileUpload (uploadHandler)="upload($event)" chooseLabel="dodaj slike" name="images"  multiple="multiple"
-        accept="image/*" [auto]="true"></p-fileUpload>
-
+  <p-fileUpload
+    chooseLabel="dodaj slike"
+    name="images"
+    multiple="multiple"
+    accept="image/*"
+    [auto]="true"
+  ></p-fileUpload>
+  <button
+    *ngIf="files.files.length > 0"
+    class="btn primary create-ad"
+    (click)="createAd()"
+  >
+    Kreiraj Oglas
+  </button>
 </div>
-
-<button class="btn primary" (click)="createAd()">Kreiraj</button>

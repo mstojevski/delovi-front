@@ -2,37 +2,20 @@
   <div class="container">
     <div class="p-grid">
       <div class="p-col-4">
-        <div class="ad-profile" >
-          <img ngxGravatar fallback="mp" [email]="user.email" size="80" />
-          <div class="desc">
-            <h3>{{user.name}}</h3>
-            <p><span>Mesto:</span> {{user.city}}</p>
-            <p><span>Kontakt:</span> {{user.phone}}</p>
-            <div class="reviews">
-              <div class="minus">
-                <i class="fas fa-minus"></i>
-                6
-              </div>
-              <div class="plus">
-                <i class="fas fa-plus"></i>
-                9
-              </div>
-
-            </div>
-          </div>
+        <app-profile-card [showAds]="false" [user]="user"></app-profile-card>
       </div>
-    </div>
       <div class="p-col-8" *ngIf="ads$ | async as ads">
         <div class="ads" *ngIf="ads.length; else noAd">
           <app-ad full="full" [ad]="ad" *ngFor="let ad of ads"></app-ad>
         </div>
         <ng-template #noAd>
           <p>Nemate ni jedan oglas, napravi svoj prvi oglas brzo i lako</p>
-          <br>
-          <button class="btn primary" (click)="navigateToCreateAd()">Napravi oglas</button>
+          <br />
+          <button class="btn primary" (click)="navigateToCreateAd()">
+            Napravi oglas
+          </button>
         </ng-template>
       </div>
     </div>
   </div>
 </div>
-

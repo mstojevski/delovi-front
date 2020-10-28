@@ -1,10 +1,12 @@
-<div class="ad-profile" [class.gold]="favorite">
+<div class="ad-profile">
   <img ngxGravatar fallback="mp" [email]="user.email" size="80" />
   <div class="desc">
     <h3>{{user.name}}</h3>
-    <p><b>Mesto:</b> {{user.city}}</p>
-    <p><b>Kontakt:</b> {{user.phone}}</p>
-    <a class="read-more" routerLink="/profile/{{_id}}">Svi oglasi</a>
+    <div>
+      <p>Mesto:{{user.city}}</p>
+      <p>Kontakt:{{user.phone}}</p>
+      <a *ngIf="showAds" class="read-more" routerLink="/profile/{{_id}}">Svi oglasi</a>
+    </div>
   </div>
   <div *ngIf="hasVote">123</div>
 </div>

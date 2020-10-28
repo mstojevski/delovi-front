@@ -8,9 +8,9 @@ import { IUser } from '../../../../../auth.service';
 })
 export class ProfileCardComponent implements OnInit {
   @Input() user: IUser;
-  @Input() favorite: boolean;
   @Input() _id: string;
   @Input() hasVote: boolean;
+  @Input() showAds = true;
   constructor() { }
 
   ngOnInit(): void {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HomeService } from '../../../../../home/service/home.service';
-import { AdService } from '../../services/ad.service';
+import { CreateAdService } from '../../services/create-ad.service';
 
 @Component({
   selector: 'app-more-info',
@@ -20,7 +20,7 @@ export class MoreInfoComponent implements OnInit {
     favorite: new FormControl(false),
     status: new FormControl('', Validators.required),
   })
-  constructor(private router: Router, private homeService: HomeService, private adService: AdService) {}
+  constructor(private router: Router, private homeService: HomeService, private adService: CreateAdService) {}
 
   get brands() {
     return this.moreInfoForm.get('brands');

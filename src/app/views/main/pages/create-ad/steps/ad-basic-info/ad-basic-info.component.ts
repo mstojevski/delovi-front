@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HomeService } from '../../../../../home/service/home.service';
 import { ToastrService } from 'ngx-toastr';
-import { AdService } from '../../services/ad.service';
+import { CreateAdService } from '../../services/create-ad.service';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class AdBasicInfoComponent implements OnInit {
     description: new FormControl('', [Validators.required]),
     categories: new FormControl(null, Validators.required),
   });
-  constructor(private router: Router, private adService: AdService, private homeService: HomeService, private toastr: ToastrService) { }
+  constructor(private router: Router, private adService: CreateAdService, private homeService: HomeService, private toastr: ToastrService) { }
 
   get title() {
     return this.adForm.get('title');

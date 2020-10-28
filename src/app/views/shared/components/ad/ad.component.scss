@@ -72,7 +72,10 @@
   line-height: 20px;
   color: #8A99A8;
   margin-bottom:16px;
-  max-width:328px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .ad-footer {
   display:flex;

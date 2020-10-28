@@ -20,5 +20,6 @@ export interface IAd {
   status: string;
   year: number;
   user: IContact
+  images?: any
 }
 

@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgImageSliderModule } from 'ng-image-slider';
-
 import { MainRoutingModule } from './main-routing.module';
 import { SingleAdComponent } from './pages/single-ad/single-ad.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -12,6 +10,8 @@ import { CreateAdModule } from './pages/create-ad/create-ad.module';
 import { RouterModule } from '@angular/router';
 import {TableModule} from 'primeng/table';
 import { GravatarModule } from 'ngx-gravatar';
+import { GalleriaModule } from 'primeng/galleria';
+
 
 
 @NgModule({
@@ -19,14 +19,14 @@ import { GravatarModule } from 'ngx-gravatar';
   imports: [
     CommonModule,
     MainRoutingModule,
-    NgImageSliderModule,
     ReactiveFormsModule,
     RouterModule,
     SharedModule,
     StepsModule,
     TableModule,
     CreateAdModule,
-    GravatarModule
+    GravatarModule,
+    GalleriaModule
   ],
 
 })

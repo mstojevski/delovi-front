@@ -32,13 +32,29 @@ export class SingleAdService implements Resolve<any> {
     ]).pipe(
       tap(([ads, categories, brands]) => {
         const ad = ads.find(one => one._id === route.params.id);
-        const adsWithSameCategory = ads.filter((one) => one.category === ad.category && one._id !== ad._id).slice(0,4);
         const category = categories.find(one => one._id === ad.category).name;
         const brand = brands.find(one => one._id === ad.brand).name;
+
+        const adCategory = {...ad, category, brand}
+        const adsWithCategoryAndBrand = ads.map((one) => {
+          return {
+            ...one,
+            category,
+            brand
+          }
+        })
+
+        const adsWithSameCategory = adsWithCategoryAndBrand.filter((one) => one.category === adCategory.category && one._id !== adCategory._id).slice(0,3);
+        const images = ad.images.map((one => {
+          return {
+            previewImageUrl: one
+          }
+        }))
         const data = {
           ...ad,
           category,
           brand,
+          images
         }
         this._singleAdData.next(data);
         this._adsWithSameCategory.next(adsWithSameCategory);
