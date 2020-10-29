@@ -1,10 +1,12 @@
 <div class="upload">
   <p-fileUpload
     chooseLabel="dodaj slike"
+    class="p-button-success"
     name="images"
     multiple="multiple"
     accept="image/*"
     [auto]="true"
+
   ></p-fileUpload>
   <button
     *ngIf="files.files.length > 0"

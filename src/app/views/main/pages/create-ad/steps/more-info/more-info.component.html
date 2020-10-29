@@ -13,24 +13,40 @@
               [clearable]="false"
               [searchable]="false"
               placeholder="Izaberite marku"
-
             >
             </ng-select>
           </div>
 
           <div class="p-field">
             <label for="">Model</label>
-            <input type="text" formControlName="model" class="input" placeholder="Model" />
+            <input
+              type="text"
+              formControlName="model"
+              class="input"
+              placeholder="Model"
+            />
           </div>
 
           <div class="p-field">
             <label for="">Godište</label>
-            <input type="number" min="0" formControlName="year" class="input" placeholder="Godište" />
+            <input
+              type="number"
+              min="0"
+              formControlName="year"
+              class="input"
+              placeholder="Godište"
+            />
           </div>
 
           <div class="p-field">
             <label for="">Cena</label>
-            <input placeholder="Cena" type="number" min="0" formControlName="price" class="input" />
+            <input
+              placeholder="Cena"
+              type="number"
+              min="0"
+              formControlName="price"
+              class="input"
+            />
           </div>
 
           <div class="p-field">
@@ -41,7 +57,6 @@
               [clearable]="false"
               [searchable]="false"
               placeholder="Status"
-
             >
             </ng-select>
           </div>
@@ -61,18 +76,17 @@
     </ng-template>
     <ng-template pTemplate="footer">
       <div class="p-grid p-justify-end footer-container">
-        <!-- <p-button
-          label="Back"
-          (onClick)="prevPage()"
-          icon="pi pi-angle-left"
-        ></p-button> -->
-        <p-button
+        <button
           label="Sledeći korak"
-          (onClick)="nextPage()"
+          (click)="nextPage()"
+          class="p-button-success"
           icon="pi pi-angle-right"
           iconPos="right"
           [disabled]="moreInfoForm.invalid"
-        ></p-button>
+          pButton
+          type="button"
+          class="p-button-success"
+        ></button>
       </div>
     </ng-template>
   </p-card>

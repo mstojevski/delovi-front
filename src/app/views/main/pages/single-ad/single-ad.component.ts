@@ -9,9 +9,6 @@ import { Router } from '@angular/router';
 })
 export class SingleAdComponent {
   currentUser = this.auth.currentUserId;
-
-
-
   constructor(
     public adService: SingleAdService,
     private auth: AuthService,

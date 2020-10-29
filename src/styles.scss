@@ -353,14 +353,15 @@ p {
 .p-steps .p-steps-item.p-highlight .p-steps-number {
   background:#44515d !important;
 }
-.p-button {
-  background: #f18805 !important;
-  border:none !important;
-}
+
 .profile-card {
   max-width:400px;
   margin-top: 50px;
 }
 .p-galleria .p-galleria-item-nav .p-galleria-item-prev-icon, .p-galleria .p-galleria-item-nav .p-galleria-item-next-icon {
   color:#fff;
+}
+.p-button-success {
+  background:#1FBC97 !important;
+  border:none !important;
 }

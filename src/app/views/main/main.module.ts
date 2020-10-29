@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
 import {TableModule} from 'primeng/table';
 import { GravatarModule } from 'ngx-gravatar';
 import { GalleriaModule } from 'primeng/galleria';
+import { GalleryModule } from 'ng-gallery';
+
 
 
 
@@ -26,7 +28,8 @@ import { GalleriaModule } from 'primeng/galleria';
     TableModule,
     CreateAdModule,
     GravatarModule,
-    GalleriaModule
+    GalleriaModule,
+    GalleryModule
   ],
 
 })

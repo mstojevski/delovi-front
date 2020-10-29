@@ -5,7 +5,12 @@
         <div class="p-fluid">
           <div class="p-field">
             <label class="label" for="firstname">Naslov</label>
-            <input type="text" class="input" formControlName="title" placeholder="Naslov vašeg oglasa" />
+            <input
+              type="text"
+              class="input"
+              formControlName="title"
+              placeholder="Naslov vašeg oglasa"
+            />
           </div>
 
           <div class="p-field">
@@ -18,26 +23,34 @@
               [clearable]="false"
               [searchable]="false"
               placeholder="Izaberite kategoriju"
-
             >
             </ng-select>
           </div>
           <div class="p-field">
             <label class="label" for="firstname">Opis</label>
-            <textarea rows="6" class="textarea" formControlName="description" placeholder="Opis vašeg oglasa"></textarea>
+            <textarea
+              rows="6"
+              class="textarea"
+              formControlName="description"
+              placeholder="Opis vašeg oglasa"
+            ></textarea>
           </div>
         </div>
       </form>
     </ng-template>
     <ng-template pTemplate="footer">
       <div class="p-grid p-nogutter p-justify-end">
-        <p-button
+        <button
+          class="p-button-success"
           label="Sledeći korak"
-          (onClick)="nextPage()"
+          (click)="nextPage()"
           icon="pi pi-angle-right"
           iconPos="right"
           [disabled]="adForm.invalid"
-        ></p-button>
+          pButton
+          type="button"
+          class="p-button-success"
+        ></button>
       </div>
     </ng-template>
   </p-card>
