@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://deloviapi.herokuapp.com?cacheblock=true',
+  apiUrl: 'https://deloviapi.herokuapp.com',
 
 };
 
