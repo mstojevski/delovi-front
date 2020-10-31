@@ -9,8 +9,8 @@ import { IAd } from 'src/app/models/ad.interface';
 })
 
 export class HomeComponent implements OnInit {
-  brands$: Observable<IData[]>
-  categories$: Observable<IData[]>;
+  brands$: Observable<IData[]> = this.homeService.brands$;
+  categories$: Observable<IData[]> = this.homeService.categories$;
   ads$:Observable<IAd[]>;
 
 
@@ -18,8 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.ads$ = this.homeService.loadData();
-    this.categories$ = this.homeService.getCategories();
-    this.brands$ = this.homeService.getBrends();
+
 
   }
 

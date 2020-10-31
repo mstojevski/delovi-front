@@ -45,7 +45,7 @@ export class AdBasicInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categories$ = this.homeService.getCategories();
+    this.categories$ = this.homeService.categories$;
   }
 
 }

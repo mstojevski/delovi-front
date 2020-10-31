@@ -42,7 +42,7 @@ export class MoreInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.brands$ = this.homeService.getBrends();
+    this.brands$ = this.homeService.brands$;
   }
 
   nextPage() {

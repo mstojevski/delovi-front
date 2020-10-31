@@ -348,7 +348,7 @@ p {
   }
 }
 .p-card {
-  border:1px solid #eaeaea;
+  border:1px solid #a4aeba;
   box-shadow:none !important;
 }
 .p-steps .p-steps-item.p-highlight .p-steps-number {
@@ -365,5 +365,59 @@ p {
 .p-button-success {
   background:#1FBC97 !important;
   border:none !important;
+  &:focus {
+    outline:none !important;
+    box-shadow:none !important;
+  }
+}
+.ng-select .ng-select-container {
+  border: none; // moved border to parent element
 }
 
+.ng-select {
+  border-radius: 4px;
+  border: 1px solid #a4aeba;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+  color: #a4aeba;
+  font-size: 14px;
+  font-weight: 400;
+}
+.ng-select {
+  &.alert-error {
+    border: 1px solid #ff5f57;
+    border-radius: 4px;
+  }
+
+  &.alert-success {
+    border: 1px solid #20ac8c;
+    border-radius: 4px;
+  }
+}
+.ng-select.ng-select-focused {
+  outline: none;
+  border: 1px solid #695eee;
+  box-shadow: 0 0 4px #695eee;
+}
+
+.ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+  border-color: #ccc;
+  box-shadow: none;
+}
+
+.ng-select-container.ng-has-value {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #34495e;
+}
+.p-fileupload-buttonbar .p-button {
+  background:#1FBC97 !important;
+  border:none !important;
+  outline:none !important;
+  &:focus {
+    outline:none !important;
+    box-shadow:none !important;
+  }
+}

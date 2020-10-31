@@ -23,6 +23,12 @@
               [clearable]="false"
               [searchable]="false"
               placeholder="Izaberite kategoriju"
+              [class.alert-error]="
+              categories.invalid && (categories.dirty || categories.touched)
+              "
+                [class.alert-success]="
+                !categories.invalid && (categories.dirty || categories.touched)
+              "
             >
             </ng-select>
           </div>

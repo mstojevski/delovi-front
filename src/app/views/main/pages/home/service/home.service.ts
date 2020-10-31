@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, Observable } from 'rxjs';
+import { forkJoin, Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IAd } from 'src/app/models/ad.interface';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
@@ -13,14 +13,14 @@ export interface IData {
   providedIn: 'root',
 })
 export class HomeService implements Resolve<Observable<IAd[]>> {
-  constructor(private http: HttpClient) {}
+  private _categories = new BehaviorSubject<IData[]>([]);
+  categories$ = this._categories.asObservable();
 
-  getCategories(): Observable<IData[]> {
-    return this.http.get<IData[]>(`${environment.apiUrl}/category`)
-  }
-  getBrends(): Observable<IData[]> {
-    return this.http.get<IData[]>(`${environment.apiUrl}/brand`)
-  }
+  private _brands = new BehaviorSubject<IData[]>([]);
+  brands$ = this._brands.asObservable();
+
+
+  constructor(private http: HttpClient) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAd[]> {
     return this.loadData();
@@ -33,10 +33,12 @@ export class HomeService implements Resolve<Observable<IAd[]>> {
       this.http.get<IData[]>(`${environment.apiUrl}/brand`),
       this.http.get<IAd[]>(`${environment.apiUrl}/ad`),
     ]).pipe(
-      map(([categories, brends, ads]) => {
+      map(([categories, brands, ads]) => {
+        this._brands.next(brands);
+        this._categories.next(categories);
         const adsWithCategory = ads.map((ad) => {
           const category = categories.find(one => one._id === ad.category).name;
-          const brand = brends.find(one => one._id === ad.brand).name;
+          const brand = brands.find(one => one._id === ad.brand).name;
           return {
             ...ad,
             category,

@@ -1,6 +1,6 @@
 <div class="home">
   <div class="p-grid">
-    <div class="p-col-12 filters">
+    <div class="p-col-3 filters">
       <h2>Pretraga</h2>
       <div class="filters-container">
         <div class="filter-item">
@@ -28,8 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="p-col-12 ads" *ngIf="ads$ | async as ads">
-      <h2>Trenutno aktivnih oglasa: {{ads.length}}</h2>
+    <div class="p-col-9 ads" *ngIf="ads$ | async as ads">
       <div class="ad-container">
           <app-ad class="ad" [ad]="ad" *ngFor="let ad of ads"></app-ad>
       </div>
