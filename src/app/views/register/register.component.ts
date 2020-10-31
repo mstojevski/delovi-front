@@ -7,6 +7,8 @@ import { AuthService, IUser } from '../../auth.service'
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  emailInputFocused = false;
+
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
@@ -42,7 +44,18 @@ export class RegisterComponent {
       phone: this.phone.value,
       city: this.city.value
     }
+    if(!user) {
+      return;
+    }
     this.auth.register(user);
   }
+  onBlur(event) {
+    this.emailInputFocused = false;
+  }
+
+  onFocus(event) {
+    this.emailInputFocused = true;
+  }
+
 
 }

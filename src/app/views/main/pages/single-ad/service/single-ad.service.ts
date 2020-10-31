@@ -5,7 +5,7 @@ import { tap } from 'rxjs/operators';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import {environment} from '../../../../../../environments/environment';
 import { IAd } from 'src/app/models/ad.interface';
-import { IData } from 'src/app/views/home/service/home.service';
+import { IData } from '../../home/service/home.service';
 
 
 @Injectable({

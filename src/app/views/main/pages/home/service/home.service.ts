@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {environment} from '../../../../environments/environment'
 import { IAd } from 'src/app/models/ad.interface';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { environment } from 'src/environments/environment';
 export interface IData {
   _id: string;
   name:string;

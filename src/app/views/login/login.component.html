@@ -9,6 +9,8 @@
         <input
           type="email"
           class="input"
+          (focus)="onFocus($event)"
+          (blur)="onBlur($event)"
           [class.alert-error]="email.invalid && (email.dirty || email.touched)"
           [class.alert-success]="
             !email.invalid && (email.dirty || email.touched)
@@ -20,7 +22,7 @@
           <span class="show-error" *ngIf="email.hasError('required')">
             Email je obavezan.
           </span>
-          <span class="show-error" *ngIf="email.hasError('email')">
+          <span class="show-error" *ngIf="email.hasError('email') && !emailInputFocused">
             Email nije u dobrom formatu.
           </span>
         </div>
@@ -45,7 +47,7 @@
           </span>
         </div>
       </div>
-      <button class="btn primary" (click)="login()">Uloguj se</button>
+      <button class="btn primary" [disabled]="signInForm.invalid" (click)="login()">Uloguj se</button>
     </form>
   </div>
 </div>

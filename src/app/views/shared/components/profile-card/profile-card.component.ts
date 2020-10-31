@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IUser } from '../../../../../auth.service';
+import { IUser } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-profile-card',

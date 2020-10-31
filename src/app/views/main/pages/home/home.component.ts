@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService, IData } from './service/home.service';
 import { Observable } from 'rxjs';
-import { AuthService } from '../../auth.service';
 import { IAd } from 'src/app/models/ad.interface';
 
 @Component({
@@ -15,7 +14,7 @@ export class HomeComponent implements OnInit {
   ads$:Observable<IAd[]>;
 
 
-  constructor(private homeService: HomeService, private auth:AuthService) {}
+  constructor(private homeService: HomeService) {}
 
   ngOnInit() {
     this.ads$ = this.homeService.loadData();

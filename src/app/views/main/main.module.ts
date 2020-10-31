@@ -12,12 +12,11 @@ import {TableModule} from 'primeng/table';
 import { GravatarModule } from 'ngx-gravatar';
 import { GalleriaModule } from 'primeng/galleria';
 import { GalleryModule } from 'ng-gallery';
-
-
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
-  declarations: [SingleAdComponent, ProfileComponent],
+  declarations: [SingleAdComponent, ProfileComponent, HomeComponent],
   imports: [
     CommonModule,
     MainRoutingModule,
@@ -26,10 +25,10 @@ import { GalleryModule } from 'ng-gallery';
     SharedModule,
     StepsModule,
     TableModule,
-    CreateAdModule,
     GravatarModule,
     GalleriaModule,
-    GalleryModule
+    GalleryModule,
+    NgSelectModule,
   ],
 
 })

@@ -64,7 +64,7 @@ export class AuthService {
       .post(`${environment.apiUrl}/auth/login`, { email, password })
       .subscribe((res: any) => {
         this.saveToken(res.token);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       }, (err) => {
         this.toastr.error(err.error.message);
       });
