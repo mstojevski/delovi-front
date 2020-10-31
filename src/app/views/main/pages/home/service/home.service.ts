@@ -23,11 +23,6 @@ export class HomeService implements Resolve<Observable<IAd[]>> {
   constructor(private http: HttpClient) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAd[]> {
-    return this.loadData();
-  }
-
-
-  loadData():Observable<IAd[]> {
     return forkJoin([
       this.http.get<IData[]>(`${environment.apiUrl}/category`),
       this.http.get<IData[]>(`${environment.apiUrl}/brand`),
@@ -49,5 +44,4 @@ export class HomeService implements Resolve<Observable<IAd[]>> {
       })
     )
   }
-
 }

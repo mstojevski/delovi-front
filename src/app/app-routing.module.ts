@@ -15,7 +15,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/admin/admin.module').then((m) => m.AdminModule),
   },
-  {path: '', canActivate: [AuthGuard], resolve: { items: HomeService }, loadChildren: () => import('./views/main/main.module').then(m => m.MainModule)}
+  {path: '', canActivate: [AuthGuard], resolve: { ads: HomeService }, loadChildren: () => import('./views/main/main.module').then(m => m.MainModule)}
 ];
 
 @NgModule({

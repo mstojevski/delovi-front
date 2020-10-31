@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="p-col-9 ads" *ngIf="ads$ | async as ads">
+    <div class="p-col-9 ads">
       <div class="ad-container">
           <app-ad class="ad" [ad]="ad" *ngFor="let ad of ads"></app-ad>
       </div>
