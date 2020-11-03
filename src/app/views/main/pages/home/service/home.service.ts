@@ -33,10 +33,14 @@ export class HomeService implements Resolve<Observable<IAd[]>> {
         this._categories.next(categories);
         const adsWithCategory = ads.map((ad) => {
           const category = categories.find(one => one._id === ad.category).name;
+          const categoryId = categories.find(one => one._id === ad.category)._id;
           const brand = brands.find(one => one._id === ad.brand).name;
+          const brandId = brands.find(one => one._id === ad.brand)._id;
           return {
             ...ad,
             category,
+            categoryId,
+            brandId,
             brand
           }
         })

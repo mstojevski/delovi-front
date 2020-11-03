@@ -17,7 +17,7 @@ export class SingleAdComponent {
 
   setStatusToSold(id: string) {
     this.adService.setStatusSold(id).subscribe(() => {
-      this.route.navigate(['home']);
+      this.route.navigate(['/']);
     });
   }
 }

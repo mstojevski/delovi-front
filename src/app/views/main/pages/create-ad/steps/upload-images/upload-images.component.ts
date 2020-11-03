@@ -19,7 +19,7 @@ export class UploadImagesComponent implements OnInit {
   createAd() {
     this.adService.createAd(this.files).subscribe(() => {
       this.toast.success("Uspešno kreiran oglas");
-      this.route.navigate(['home'])
+      this.route.navigate(['/'])
     }, (err) => {
       this.toast.error("Greška pri kreiranju oglasa")
     });

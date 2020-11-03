@@ -21,5 +21,7 @@ export interface IAd {
   year: number;
   user: IContact
   images?: any
+  categoryId?: string
+  brandId?:string
 }
 

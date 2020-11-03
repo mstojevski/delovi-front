@@ -14,6 +14,8 @@ import { GalleriaModule } from 'primeng/galleria';
 import { GalleryModule } from 'ng-gallery';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { HomeComponent } from './pages/home/home.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   declarations: [SingleAdComponent, ProfileComponent, HomeComponent],
@@ -29,7 +31,10 @@ import { HomeComponent } from './pages/home/home.component';
     GalleriaModule,
     GalleryModule,
     NgSelectModule,
+    ConfirmDialogModule
+
   ],
+  providers: [ConfirmationService]
 
 })
 export class MainModule {}

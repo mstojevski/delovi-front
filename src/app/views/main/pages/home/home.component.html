@@ -9,8 +9,9 @@
                 bindLabel="name"
                 bindValue="id"
                 placeholder="Izaberi kategoriju"
-                [clearable]="false"
+                [clearable]="true"
                 [searchable]="false"
+                (change)="onCategoryChange($event)"
               >
               </ng-select>
         </div>
@@ -21,15 +22,16 @@
                 bindLabel="name"
                 bindValue="id"
                 placeholder="Izaberi marku"
-                [clearable]="false"
+                [clearable]="true"
                 [searchable]="false"
+                (change)="onBrandChange($event)"
               >
               </ng-select>
         </div>
       </div>
     </div>
     <div class="p-col-9 ads">
-      <div class="ad-container">
+      <div class="ad-container" *ngIf="filteredData$ | async as ads">
           <app-ad class="ad" [ad]="ad" *ngFor="let ad of ads"></app-ad>
       </div>
     </div>
