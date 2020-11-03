@@ -13,6 +13,7 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
+        resolve: { ads: HomeService }
       },
       {
         path: 'profile/:id',
