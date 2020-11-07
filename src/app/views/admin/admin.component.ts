@@ -21,7 +21,7 @@ export class AdminComponent implements OnInit {
   }
   deleteAd(id: string) {
     this.confirmationService.confirm({
-      message: 'Da li želite da obrišete ovaj oglas?',
+      message: 'Vaš oglas nece biti dostupan na sajtu',
       accept: () => {
         this.adminService.deleteAd(id).subscribe();
       },
@@ -29,7 +29,7 @@ export class AdminComponent implements OnInit {
   }
   updateAd(id: string) {
     this.confirmationService.confirm({
-      message: 'Da li želite da promenite status oglasa?',
+      message: 'Oglas ce dobiti status prodat',
       accept: () => {
         this.adminService.updateStatus(id).subscribe();
       },

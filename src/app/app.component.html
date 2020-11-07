@@ -1,6 +1,6 @@
 <div class="flex-wrap">
   <header class="nav">
-    <span class="logo"><i class="fas fa-cogs"></i><a routerLink="/">Autodelovi</a></span>
+    <span class="logo"><i class="pi pi-cog"></i><a routerLink="/">Autodelovi</a></span>
     <ul class="nav-list">
       <ng-container *ngIf='!auth.isAuthenticated'>
         <li class="nav-item">
@@ -20,7 +20,8 @@
           <a routerLink="/ad-create">Napravi Oglas</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/profile/{{auth.currentUserId}}">Profil</a>
+          <a routerLink="/profile/{{auth.currentUserId}}">Moj Profil</a>
+          <div class="currentEmail">{{auth.currentUserEmail}}</div>
         </li>
         <li class="nav-item">
           <a (click)="auth.logout()">Odjavi se</a>

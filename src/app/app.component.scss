@@ -8,7 +8,7 @@
   flex: 1;
 }
 header, footer {
-  height:68px;
+  height:70px;
   background-color:#44515d;
 }
 .logo {
@@ -29,15 +29,26 @@ header, footer {
 }
 .nav {
   display:flex;
-  align-items:center;
+  align-items: flex-start;
   padding-left:24px;
   padding-right:24px;
 }
 .nav-list {
   display:flex;
   margin-left:auto;
+  margin-top:24px;
+
 }
 .nav-item a {
   color:#fff;
   margin-right:15px;
+  transition:color 300ms;
+  &:hover {
+    color:#82D4BB;
+  }
+}
+.currentEmail {
+  color:#82D4BB;
+  margin-top:5px;
+  font-size:12px;
 }

@@ -5,7 +5,7 @@
         <div class="title">
           <h1 class="ad-title">{{ ad.title }}</h1>
           <div class="favorite" *ngIf="ad.favorite">
-            <i class="fas fa-crown"></i>
+            <i class="pi pi-star"></i>
           </div>
         </div>
         <p-galleria
@@ -44,7 +44,7 @@
               <li><b>Kategorija</b>: {{ ad.category }}</li>
               <li><b>Model</b>: {{ ad.model }}</li>
               <li><b>Godiste</b>: {{ ad.year }}</li>
-              <li><b>Cena</b>: {{ ad.price }}RSD</li>
+              <li><b>Cena</b>: {{ ad.price }}€</li>
             </ul>
             <h2 class="ad-status">
               Status:
@@ -84,3 +84,4 @@
   </div>
 </div>
 <ng-template #noAds> Nema oglasa iz ove kategorije. </ng-template>
+<p-confirmDialog acceptLabel="Da" rejectLabel="Ne" header="Da li želite da sklonite oglas?" icon="pi pi-exclamation-triangle"></p-confirmDialog>
