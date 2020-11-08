@@ -21,7 +21,7 @@
 }
 .ad-header {
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content: space-between;
   margin-bottom:12px;
   h3 {
@@ -29,8 +29,9 @@
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
-    line-height: 18px;
     color: #364D63;
+    line-height: 24px;
+    max-width: 192px;
   }
   .price {
     font-family: Lato;

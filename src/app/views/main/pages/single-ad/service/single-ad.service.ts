@@ -46,7 +46,6 @@ export class SingleAdService implements Resolve<any> {
           brand,
           images
         }
-        console.log('ad', ad);
         const adsCategory = ads.filter((one) => one.category === ad.category && one._id !== ad._id)
 
         const adsWithCategoryBrands = adsCategory.map((ad) => {

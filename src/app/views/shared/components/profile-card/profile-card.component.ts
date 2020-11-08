@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit } from '@angular/core';
 import { IUser } from 'src/app/auth.service';
 
 @Component({
@@ -11,6 +11,7 @@ export class ProfileCardComponent implements OnInit {
   @Input() _id: string;
   @Input() hasVote: boolean;
   @Input() showAds = true;
+  @Input() rating: number;
   constructor() { }
 
   ngOnInit(): void {

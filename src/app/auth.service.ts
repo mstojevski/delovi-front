@@ -38,6 +38,9 @@ export class AuthService {
   public get currentUserEmail() {
     return JSON.parse(atob(this.token.split('.')[1])).email;
   }
+  public get currentUserName() {
+    return JSON.parse(atob(this.token.split('.')[1])).name;
+  }
 
   logout() {
     localStorage.removeItem(this.TOKEN_KEY);

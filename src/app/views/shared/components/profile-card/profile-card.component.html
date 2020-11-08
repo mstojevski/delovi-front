@@ -7,6 +7,9 @@
       <p>Kontakt:{{user.phone}}</p>
       <a *ngIf="showAds" class="read-more" routerLink="/profile/{{_id}}">Svi oglasi</a>
     </div>
+    <div *ngIf="hasVote" class="rating">
+      <p-rating  [iconOnStyle]="{'color':'#82D4BB'}" [ngModel]="rating" readonly="true" [cancel]="false"></p-rating>
+    </div>
   </div>
-  <div *ngIf="hasVote">123</div>
+
 </div>

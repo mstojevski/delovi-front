@@ -1,10 +1,63 @@
 <div class="profile" *ngIf="user$ | async as user">
   <div class="container">
     <div class="p-grid">
-      <div class="p-col-4">
-        <app-profile-card [showAds]="false" [user]="user"></app-profile-card>
+      <div class="p-col-5">
+        <app-profile-card
+          hasVote="true"
+          [rating]="profileService.rating$ | async"
+          [showAds]="false"
+          [user]="user"
+        ></app-profile-card>
+        <ng-container *ngIf="currentId !== currentLogin">
+          <div class="rating-container">
+            <form [formGroup]="ratingForm">
+              <div class="mark">
+                <label class="label">Ocena</label>
+                <p-rating
+                  [iconOnStyle]="{ color: '#82D4BB' }"
+                  [cancel]="false"
+                  formControlName="rating"
+                ></p-rating>
+              </div>
+              <div class="description-box">
+                <label class="label">Ostavi komentar</label>
+                <textarea
+                  class="textarea"
+                  formControlName="description"
+                ></textarea>
+              </div>
+              <button
+                [disabled]="ratingForm.invalid"
+                class="btn primary"
+                (click)="rate()"
+              >
+                Oceni
+              </button>
+            </form>
+          </div>
+        </ng-container>
+        <div
+          class="comments"
+          *ngIf="profileService.reviews$ | async as reviews"
+        >
+          <h3 *ngIf="reviews.length">Ocene korisnika</h3>
+          <ng-container *ngFor="let review of reviews">
+            <div class="comment">
+              <div class="description">{{ review.description }}</div>
+              <div class="author-container">
+                <div class="author">{{ review.reviewerName }}</div>
+                <p-rating
+                  [iconOnStyle]="{ color: '#82D4BB' }"
+                  [cancel]="false"
+                  [ngModel]="review.rating"
+                  readonly="true"
+                ></p-rating>
+              </div>
+            </div>
+          </ng-container>
+        </div>
       </div>
-      <div class="p-col-8" *ngIf="ads$ | async as ads">
+      <div class="p-col-7" *ngIf="ads$ | async as ads">
         <div class="ads" *ngIf="ads.length; else noAd">
           <app-ad full="full" [ad]="ad" *ngFor="let ad of ads"></app-ad>
         </div>
@@ -18,4 +71,5 @@
       </div>
     </div>
   </div>
+  <div></div>
 </div>

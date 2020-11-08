@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { SingleAdComponent } from './pages/single-ad/single-ad.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import {StepsModule} from 'primeng/steps';
 import { CreateAdModule } from './pages/create-ad/create-ad.module';
@@ -16,6 +16,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { HomeComponent } from './pages/home/home.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+import {RatingModule} from 'primeng/rating';
+
 
 @NgModule({
   declarations: [SingleAdComponent, ProfileComponent, HomeComponent],
@@ -31,7 +33,9 @@ import { ConfirmationService } from 'primeng/api';
     GalleriaModule,
     GalleryModule,
     NgSelectModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    RatingModule,
+    FormsModule
 
   ],
   providers: [ConfirmationService]
