@@ -25,6 +25,24 @@
                   class="textarea"
                   formControlName="description"
                 ></textarea>
+                <div class="ads-container">
+                  <label class="label">Izaberi Oglas</label>
+                  <ng-select
+                    (change)="selected($event)"
+                    [items]="ads$ | async"
+                    bindValue="_id"
+                    bindLabel="title"
+                    placeholder="Izaberi oglas"
+                    [clearable]="true"
+                    [searchable]="false"
+                    formControlName="ad"
+                    [class.alert-error]="ad.invalid && (ad.dirty || ad.touched)"
+                    [class.alert-success]="
+                      !ad.invalid && (ad.dirty || ad.touched)
+                    "
+                  >
+                  </ng-select>
+                </div>
               </div>
               <button
                 [disabled]="ratingForm.invalid"
@@ -40,9 +58,10 @@
           class="comments"
           *ngIf="profileService.reviews$ | async as reviews"
         >
-          <h3 *ngIf="reviews.length">Ocene korisnika</h3>
+          <h3 *ngIf="reviews.length">Ocene Oglasa</h3>
           <ng-container *ngFor="let review of reviews">
             <div class="comment">
+              <div class="ad-rated">{{ review.adTitle }}</div>
               <div class="description">{{ review.description }}</div>
               <div class="author-container">
                 <div class="author">{{ review.reviewerName }}</div>

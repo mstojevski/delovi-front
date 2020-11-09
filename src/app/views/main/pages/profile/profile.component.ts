@@ -15,10 +15,13 @@ export class ProfileComponent implements OnInit {
   currentId: string;
   ratingForm = new FormGroup({
     rating: new FormControl(null, [Validators.required]),
-    description: new FormControl('', [Validators.required])
+    description: new FormControl('', [Validators.required]),
+    ad: new FormControl(null, Validators.required),
   });
   user$: Observable<IUserInfo>;
   ads$: Observable<IAd[]>;
+  selectedAdTitle: string;
+  selectedAdId: string;
   constructor(private route: Router,  private activatedRoute: ActivatedRoute, public profileService: ProfileService, private auth: AuthService) { }
 
   navigateToCreateAd() {
@@ -34,6 +37,10 @@ export class ProfileComponent implements OnInit {
     return this.ratingForm.get('rating');
   }
 
+  get ad() {
+    return this.ratingForm.get('ad');
+  }
+
   get description() {
     return this.ratingForm.get('description');
   }
@@ -41,8 +48,12 @@ export class ProfileComponent implements OnInit {
     if(this.ratingForm.invalid) {
       return;
     }
-    this.profileService.rate({rating: this.rating.value, description: this.description.value, reviewerId: this.currentLogin, reviewerName: this.auth.currentUserName}, this.currentId).subscribe()
+    this.profileService.rate({rating: this.rating.value, description: this.description.value, reviewerId: this.currentLogin, reviewerName: this.auth.currentUserName, adTitle: this.selectedAdTitle, adId: this.selectedAdId }, this.currentId).subscribe()
     // this.profileService.vote(this.currentLogin).subscribe();
     this.ratingForm.reset();
+  }
+  selected(event) {
+    this.selectedAdId = event._id;
+    this.selectedAdTitle = event.title;
   }
 }

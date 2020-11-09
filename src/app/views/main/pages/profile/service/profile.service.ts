@@ -10,7 +10,7 @@ export interface IUserInfo {
   name: string;
   phone: string;
   city: string;
-  reviews:{reviewerId: string, rating: string, description: string}
+  reviews:{reviewerId: string, rating: string, description: string, reviewerName: string, adTitle: string, adId: string}
 }
 @Injectable({
   providedIn: 'root'
